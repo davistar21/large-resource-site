@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'Inter';
+    src: url(/Inter-VariableFont_slnt\,wght.ttf);
+}
+body{
+    font-family: 'Inter';
+    background-color:  hsl(212, 92%, 81%);
+}
+input, button{
+    font-family: 'Inter';
+    padding: 10px;
+    border-radius: 3px;
+    font-size: inherit;
+    border: 1px solid rgba(0, 0, 0, 0.1)
+}
+input{
+    border: none;
+    border-bottom: 5px solid black;
+    background-color: inherit;
+    color: white;
+}
+input::placeholder{
+    color: white;
+}
+input:focus{
+    border-radius: 3px;
+}
+.page-content-container{
+    background-color:  hsl(212, 57%, 52%);
+    width: 75%;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    padding: 50px;
+    color: white;
+}
+.task-processor{
+    background-color: none;
+}
+.task-display{
+    display: flex;
+    flex-direction: column;
+}
+.task-item{
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 0.5fr 25px;
+}

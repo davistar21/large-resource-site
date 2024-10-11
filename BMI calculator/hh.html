@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="bmiForm">
+        <label for="weight">Weight:</label>
+        <input type="number" id="weight" name="weight" required>
+        <select id="weightUnit">
+          <option value="kg">kg</option>
+          <option value="lb">lb</option>
+        </select>
+        
+        <label for="height">Height:</label>
+        <input type="number" id="height" name="height" required>
+        <select id="heightUnit">
+          <option value="cm">cm</option>
+          <option value="ft">ft + in</option>
+        </select>
+        <div id="inchesInput" style="display: none;">
+          <label for="inches">Inches:</label>
+          <input type="number" id="inches" name="inches">
+        </div>
+        
+        <button type="button" onclick="calculateBMI()">Calculate BMI</button>
+      </form>
+      
+      <p id="bmiResult"></p>
+      
+      <script>
+      function calculateBMI() {
+        const weight = parseFloat(document.getElementById('weight').value);
+        const weightUnit = document.getElementById('weightUnit').value;
+        const height = parseFloat(document.getElementById('height').value);
+        const heightUnit = document.getElementById('heightUnit').value;
+        let heightInMeters, weightInKg;
+      
+        if (weightUnit === 'lb') {
+          weightInKg = weight * 0.453592;
+        } else {
+          weightInKg = weight;
+        }
+      
+        if (heightUnit === 'cm') {
+          heightInMeters = height / 100;
+        } else {
+          const inches = parseFloat(document.getElementById('inches').value);
+          heightInMeters = ((height * 12) + inches) * 0.0254;
+        }
+      
+        const bmi = weightInKg / (heightInMeters ** 2);
+        let category = '';
+      
+        if (bmi < 18.5) {
+          category = 'Underweight';
+        } else if (bmi < 24.9) {
+          category = 'Normal weight';
+        } else if (bmi < 29.9) {
+          category = 'Overweight';
+        } else {
+          category = 'Obese';
+        }
+      
+        document.getElementById('bmiResult').innerText = `Your BMI is ${bmi.toFixed(2)} (${category})`;
+      }
+      
+      document.getElementById('heightUnit').addEventListener('change', function() {
+        const inchesInput = document.getElementById('inchesInput');
+        if (this.value === 'ft') {
+          inchesInput.style.display = 'block';
+        } else {
+          inchesInput.style.display = 'none';
+        }
+      });
+      </script>
+      
+</body>
+</html>

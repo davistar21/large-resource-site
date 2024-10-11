@@ -1,0 +1,101 @@
+@font-face {
+    font-family: 'myFont';
+    src: url(/PlusJakartaSans-VariableFont_wght.ttf);
+}
+body{
+    font-family: 'myFont', sans-serif;
+    background-color: hsl(208, 100%, 90%);
+    font-size: 20px;
+}
+a, label, input{
+    cursor: pointer;
+}
+.user-form{
+    background-color: hsl(209, 56%, 21%);
+    padding: 10px;
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 30px;
+    min-height: 250px;
+    margin: 30px auto;
+    position: relative;
+}
+.form-step{
+    display: none;
+}
+.form-step.active{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 20px;
+    margin: 0px auto;
+    padding-top: 30px;
+    /* align-items: center; */
+    /* background-color: hsl(210, 25%, 100%); */
+}
+.form-step label{
+    color: hsl(0, 0%, 85%);
+}
+.form-step input{
+    background-color: transparent; 
+    color: hsl(0, 0%, 95%);
+    border: none;
+    border-bottom: 5px solid hsl(213, 75%, 31%);
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 20px;
+}
+.form-step a{
+    color: inherit;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.form-step a:hover{
+    color: hsl(208, 100%, 90%);
+}
+.form-step a:active{
+    opacity: 0.5;
+}
+
+@keyframes swipe-in-left {
+    from{
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes swipe-out-right {
+    from{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+.enter-from-left{
+    animation: swipe-in-left 0.5s forwards;
+}
+.leave-to-right{
+    animation: swipe-out-right 0.5s forwards
+}
+
+.next-button{
+    width: 100px;
+    background-color: hsl(0, 0%, 95%);
+    color: hsl(209, 56%, 21%);
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 10px;
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+}
+.final{
+    font-size: 30px;
+    color: hsl(0, 0%, 85%);
+}

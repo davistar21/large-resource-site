@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dead or Injured Redo</title>
+    <link rel="stylesheet" href="dead-or-injured.css">
+</head>
+<body>
+    <header>
+        <div clqss="logo-holder">
+            <img src="/BOJA-logo-croppedD.png" alt="BOJA-logo" class="boja-logoD">
+            <img src="/BOJA-logo-croppedE.png" alt="BOJA-logo" class="boja-logoE">
+            <a href="/homepage/home.html">HOME</a>
+            <a href="./guess-page.html">GUESS-PAGE</a>
+        </div>
+    <h2>SECRET CODE GAME</h2>
+    </header>
+    <div class="player-info">
+        <div>
+            <label for="">Name</label>
+            <input type="text" maxlength="10" placeholder="Type name here..." class="player-name">
+        </div>
+        <div>
+            <label for="difficulty">Difficulty</label>
+            <select name="difficulty" id="difficulty" required>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+        <button class="submit-button" type="submit">PLAY</button>
+    </div>
+
+
+    <div class="guessing-game-container">
+        <div class="player-interact">
+            <label for="">Guess</label>
+            <input type="number" placeholder="input 4-digit guess" class="js-guess-input">
+            <button class="go-button">Go</button>
+        </div>
+        <div class="div-for-guesses-left">
+            <div class="chances-left"></div>
+            <div class="guess-number"></div>
+        </div>
+
+        
+        <div class="js-display-guesses display-guesses"></div>
+
+        <div class="display-remark js-display-remark"></div>
+        <div class="replay js-replay"></div>
+        <div class="bottom-buttons">
+            <button class="restart-button">Restart</button>
+            <button class="quit-button">Quit</button>
+            <button class="autoplay-button">AutoPlay</button>
+        </div>
+       
+    </div>
+    <div class="game-instructions">Game Instructions</div>
+
+    <script src="/DEAD or injured/scripts/dead-or-injured.js"></script>
+</body>
+</html>

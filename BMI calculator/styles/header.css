@@ -1,0 +1,18 @@
+.header{
+    display: flex;
+    background-color: hsla(173, 75%, 19%, 0.77);
+    padding: 15px 20px;
+    justify-content: space-between;
+    margin: 0 20px;
+    border-radius: 3px;
+}
+.home, .resources{
+    color: hsl(202, 38%, 82%);
+    text-decoration: none;
+    transition: 0.5s ease;
+    padding: 5px;
+    cursor: pointer;
+}
+.home:hover, .resources:hover{
+    transform: scale(1.1);
+}

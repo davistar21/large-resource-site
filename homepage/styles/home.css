@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Inter';
+    src: url(/Inter-VariableFont_slnt\,wght.ttf);
+}
+@font-face {
+    font-family: 'Plus-Jakarta';
+    src: url(/PlusJakartaSans-VariableFont_wght.ttf);
+}
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: hsl(208, 100%, 92%);
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+header{
+    display: flex;
+    justify-content: center;
+}
+header img{
+    width: 30px;
+    height: auto;
+}

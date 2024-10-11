@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'Inter';
+    src: url(/Inter-VariableFont_slnt\,wght.ttf);
+}
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: hsl(202, 38%, 82%);
+    color: white;
+}
+.bmi-form{
+    background-color: hsla(173, 75%, 19%, 0.77);
+    width: 40%;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+.bmi-form div{
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+}
+h1{
+    text-align: center;
+}
+input{
+    padding: 5px;
+    width: 80%;
+}
+.unit-div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: red;
+}
+select{
+    /* width: 70px; */
+}
+.bmi-button{
+    padding: 10px;
+    background-color: hsl(204, 17%, 23%);
+    color: white;
+    border: 1px solid white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+

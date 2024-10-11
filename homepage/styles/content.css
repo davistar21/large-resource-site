@@ -1,0 +1,126 @@
+.all{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    width: 80%;
+    margin: 100px auto;
+    gap: 10px;
+}
+.content{
+    background-color: gray;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.5s ease;
+    border: 1px solid rgba(0, 0, 0, 0.0);
+    min-width: 300px;
+}
+.content:hover{
+    transform: scale(1.03);
+    cursor: pointer;
+    border: 1px solid black;
+}
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.content1 {
+    grid-column: span 2;
+    background-color: hsl(98, 59%, 41%);
+    color: white;
+}
+
+.content2 {
+    grid-column: span 1;
+    background-color: hsl(208, 58%, 22%);
+    color: white
+}
+
+.content3 {
+    grid-column: span 1;
+    grid-row: span 2;
+    background-color: hsl(105, 100%, 85%);
+}
+.content4 {
+    grid-column: span 1;
+    grid-row: span 2;
+    background-color: hsl(12, 100%, 88%);
+}
+.content5{
+    grid-column: span 1;
+    background-color: hsl(308, 58%, 22%);
+    color: white;
+}
+.content6{
+    grid-row: span 2;
+    background-color: hsl(60, 100%, 69%);
+}
+.content7{
+    grid-row: span 2;
+    background-color: hsl(182, 51%, 32%);
+    color: white;
+}
+.content8{
+    grid-column: span 1;
+    background-color: hsl(60, 58%, 22%);
+    color: white;
+}
+.content9{
+    grid-column: span 1;
+    background-color: hsl(209, 58%, 35%);
+    color: white;
+}
+.content10{
+    grid-column: span 2;
+    background-color: hsl(288, 80%, 56%);
+    color: white;
+}
+
+@media (max-width: 1000px) and (min-width: 700px) {
+     .all{
+        grid-template-columns: repeat(2, 1fr);
+     }
+     .content6{
+        grid-row: span 1;
+     }
+     .content8{
+        grid-row: span 2;
+     }
+}
+@media (max-width: 1400px) and (min-width: 1000px) {
+    .all{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .content3{
+        grid-row: span 1;
+    }
+}
+@media (max-width: 700px) {
+    .all{
+        grid-template-columns: 1fr;
+    }
+    .content{
+        grid-row: span 1;
+        grid-column: span 1;
+        opacity: 0;
+    }
+    .content.visible{
+        opacity: 1;
+        animation: fade-in-up 1s forwards;
+    }
+    .content-desc{
+        opacity: 0;
+    }
+}
+.content-title{
+    font-size: 38px;
+    font-family: 'Plus-Jakarta';
+    font-weight: 700;
+    text-align: center;
+}
