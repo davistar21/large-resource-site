@@ -1,3 +1,4 @@
+
 function randomNumberGenerator() {
     const randomNumber = parseInt((Math.random())*10)
     return String(randomNumber)

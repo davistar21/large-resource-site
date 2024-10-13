@@ -1,9 +1,7 @@
-import totalChances from "../utils/totalChances";
+import totalChances from "../utils/totalChances.js";
 
-const guessInformation = {
-    playerGuess: document.querySelector('.guess-input').value,
+export let guessInformation = {
     dead: 0,
     injured: 0,
     currentChance: 0,
-    totalChances: totalChances(document.querySelector('.guess-chances-left')),
 }

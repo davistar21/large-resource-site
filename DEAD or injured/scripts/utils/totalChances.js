@@ -1,11 +1,11 @@
 let totalNChances;
 export default function totalChances(element){
-    if (element.value == 'easy'){
-        totalNChances = 15;
-    } else if (element.value == 'medium'){
-        totalNChances = 10;
-    } else if (element.value == 'hard'){
-        totalNChances = 5;
+    if (element == 'easy'){
+       return 15;
+    } else if (element == 'medium'){
+       return 10;
+    } else if (element == 'hard'){
+       return 5;
     }
-    return totalNChances
+    return 0
 }
