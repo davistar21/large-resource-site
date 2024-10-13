@@ -1,4 +1,5 @@
 import { guessInformation } from "./data/guess-information.js";
+import { playerInformation } from "./data/player-information.js";
 import totalChances from "./utils/totalChances.js";
 
 let currentStep = 0;
@@ -50,8 +51,12 @@ document.querySelector('.redirect-to-guess-page').addEventListener('click', ()=>
     const selectedDifficulty = document.getElementById('difficulty').value;
     guessInformation.selectedDifficulty = selectedDifficulty
     guessInformation.difficulty = totalChances(selectedDifficulty)
-    console.log(guessInformation, selectedDifficulty)
 
     localStorage.setItem('guessInformation', JSON.stringify(guessInformation));
+
+    playerInformation.name = document.getElementById('name').value;
+    playerInformation.email = document.getElementById('email').value;
+
+    localStorage.setItem('playerInformation', playerInformation)
 })
 

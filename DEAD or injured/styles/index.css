@@ -10,6 +10,10 @@ body{
 a, label, input{
     cursor: pointer;
 }
+select{
+    height: 30px;
+}
+
 .user-form{
     background-color: hsl(209, 56%, 21%);
     padding: 10px;
