@@ -57,3 +57,115 @@ p{
     background-color: hsl(210, 100%, 23%);
     color: white;
 }
+
+
+/* Hamburger Menu */
+.hamburger-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+/* Hamburger button */
+.hamburger {
+    font-size: 24px;
+    cursor: pointer;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+/* Menu items (buttons) hidden initially */
+.menu-items {
+    display: none;  /* Hidden by default */
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.icon-btn {
+    background-color: #444;
+    border: none;
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-btn:hover {
+    background-color: #555;
+}
+
+/* Toggle animation for opening the menu (optional) */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(100%); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
+    /* Start hidden by translating out of view and with 0 opacity */
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+/* Make the menu visible and add animation when active */
+.menu-items.active {
+    /* animation: slideIn 0.3s ease-in-out; */
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text styling */
+.tooltip .tooltip-text {
+    visibility: hidden; /* Hidden by default */
+    width: 80px; /* Adjust width as needed */
+    background-color: #333; /* Background color of the tooltip */
+    color: #fff; /* Text color */
+    text-align: center; /* Center the text */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px; /* Padding inside the tooltip */
+    position: absolute; /* Position it absolutely */
+    z-index: 1; /* Make sure it is on top */
+    bottom: 125%; /* Position above the button */
+    left: 50%; /* Center it horizontally */
+    margin-left: -40px; /* Center it correctly */
+    opacity: 0; /* Start as invisible */
+    transition: opacity 0.3s; /* Fade-in transition */
+}
+
+/* Show the tooltip on hover */
+.tooltip:hover .tooltip-text {
+    visibility: visible; /* Show tooltip */
+    opacity: 1; /* Fade in */
+}
