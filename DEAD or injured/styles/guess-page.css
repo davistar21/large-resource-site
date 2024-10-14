@@ -29,12 +29,26 @@ p{
     justify-content: space-between;
     border-radius: 3px;
 }
-.guess-interaction div input, .guess-interaction div button{
+.guess-interaction section{
+    display: flex;
+    gap: 30px;
+}
+.guess-interaction section button{
     background-color: transparent;
     border: none;
     border-bottom: 3px solid hsl(210, 46%, 95%);
     color: hsl(210, 46%, 95%);
     font-size: 20px;
+}
+.guess-input-container{
+    display: flex;
+    gap: 10px;
+}
+.guess-input-container input{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
 }
 .guess-display-result{
     background-color: hsl(210, 100%, 23%);
@@ -188,8 +202,9 @@ input[type="number"] {
     align-items: center;
 }
 .guess-chances div button{
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 50%;
     padding: 2px;
     background-color: white;
