@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <a href="./index-redo.html">BACK</a>
     <div class="hamburger-menu">
         <div class="hamburger">
             <i class="fas fa-bars"></i>  <!-- Hamburger Icon -->
@@ -23,8 +24,8 @@
                 <span class="tooltip-text">Hint</span>
             </div>
             <div class="tooltip">
-                <button id="quitBtn" class="icon-btn"><i class="fas fa-times"></i> </button> <!-- Quit -->
-                <span class="tooltip-text">Quit</span>
+                <button id="quitBtn" class="icon-btn">&larr;</button> <!-- Quit <i class="fas fa-times"></i> -->
+                <span class="tooltip-text">Back</span>
             </div>
             <div class="tooltip">
                 <button id="quitBtn" class="icon-btn"><i class="fas fa-tasks"></i></button> <!-- Quit -->
@@ -39,7 +40,20 @@
                 <input type="number" class="guess-input">
                 <button class="go-button">GO</button>
             </div>
-            <p class="guess-chances-left">15</p>
+            <div class="guess-chances">
+                <p class="guess-chances-left">You have 8 chances left</p>
+                <div class="chances-left-dots">
+                    <button></button>
+                    <button></button>
+                    <button></button>
+                    <button></button>
+                    <button></button>
+                    <button></button>
+                    <button></button>
+                    <button></button>
+                    <button class="disabled"></button>
+                </div>
+            </div>
         </div>
         <div class="guess-display-result">
             <div class="guess-display-result-each">1234: 1 dead 2 injured</div>

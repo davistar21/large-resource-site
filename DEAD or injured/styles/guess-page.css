@@ -169,3 +169,32 @@ p{
     visibility: visible; /* Show tooltip */
     opacity: 1; /* Fade in */
 }
+
+/* Hide spinners in Chrome, Safari, Edge, and Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hide spinners in Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.guess-chances{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.guess-chances div button{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    padding: 2px;
+    background-color: white;
+    margin: 0 2px;
+}
+.guess-chances div button.disabled{
+    opacity: 0.4;
+}
