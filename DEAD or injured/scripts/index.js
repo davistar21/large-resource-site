@@ -50,7 +50,7 @@ document.querySelector('.redirect-to-guess-page').addEventListener('click', ()=>
     // guessInformation.totalChance = totalChances(difficulty)
     const selectedDifficulty = document.getElementById('difficulty').value;
     guessInformation.selectedDifficulty = selectedDifficulty
-    guessInformation.difficulty = totalChances(selectedDifficulty)
+    guessInformation.totalGuessChances = totalChances(selectedDifficulty)
 
     localStorage.setItem('guessInformation', JSON.stringify(guessInformation));
 

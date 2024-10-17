@@ -1,10 +1,9 @@
-let totalNChances;
-export default function totalChances(element){
-    if (element == 'easy'){
+export default function totalChances(difficulty){
+    if (difficulty == 'easy'){
        return 15;
-    } else if (element == 'medium'){
+    } else if (difficulty == 'medium'){
        return 10;
-    } else if (element == 'hard'){
+    } else if (difficulty == 'hard'){
        return 5;
     }
     return 0
