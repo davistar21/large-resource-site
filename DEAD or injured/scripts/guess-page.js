@@ -1,5 +1,6 @@
 // import { guessInformation } from "./data/guess-information.js";
 import { toggleMenu } from "./toggleMenu.js";
+import { checkPlayerGuess } from "./utils/checkPlayerGuess.js";
 import generateSecretCode from "./utils/generateSecretCode.js";
 import moveToNext from "./utils/moveToNext.js";
 
@@ -14,27 +15,33 @@ document.querySelector('.hamburger').addEventListener('click',()=>{toggleMenu()}
 
 document.getElementById('1').focus();
 
-let checkSet = new Set;
 let playerGuess = '';
 
 guessInputElem.forEach(element => {
     element.addEventListener('input', (e)=>{
-        checkSet.add(e.target.value);
         playerGuess += e.target.value;
         let numberId = Number(element.id);
         numberId++;
         moveToNext(e.target, numberId, 4)
+        if (checkPlayerGuess(playerGuess)) {
+            goButtonElem.disabled = false;
+        }
     })
+    
 })
+goButtonElem.disabled = true;
 
 // console.log(guessInformation)
 goButtonElem.addEventListener('click', ()=>{
+    
     document.getElementById('1').focus();
-    checkSet.clear();
-    guessInformation.playerGuess = Number(playerGuess);
     guessInputElem.forEach(element => {
         element.value = ''
     })
-    console.log(guessInformation)})
-
+    guessInformation.playerGuess = Number(playerGuess)
+    console.log(guessInformation);
+    goButtonElem.disabled = true;
+    console.log(playerGuess)
+    playerGuess = '';
+});
 
