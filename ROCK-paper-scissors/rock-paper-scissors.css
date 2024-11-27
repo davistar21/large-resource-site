@@ -1,0 +1,175 @@
+body{
+    background-color: rgb(25, 25, 25);
+    color: white;
+    font-family: Arial;
+}
+img{
+    height: 50px;
+    
+}
+p{
+    margin: 60px 0
+}
+.move-button{
+    height: 120px;
+    width: 120px;
+    border: 3px solid white;
+    border-radius: 60px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.15s;
+    margin-right: 15px;
+    position: relative;
+}
+.reset-button, .autoplay-button{
+    padding: 10px;
+    color: white;
+    background-color: transparent;
+    border-radius: 3px;
+    height: auto;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: 0.15s;
+}
+.reset-button:hover, .move-button:hover{
+    background-color: rgba(169, 169, 169, 0.3);
+    
+}
+.white-button{
+    background-color: white;
+    color: black;   
+}
+.autoplay-button{
+    position: relative;
+}
+.autoplay-button::after, .keyboard-shortcuts::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: rgb(124, 124, 124);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+.autoplay-button:hover::after, .keyboard-shortcuts:hover::after{
+    transform: scaleX(1);
+    border-radius: 50px;
+
+}
+.keyboard-shortcuts::after{
+    background-color: white;
+    transition: transform 1s;
+}
+.popup{
+    position: fixed;
+    background-color: rgb(194, 194, 194);
+    font-family: monospace;
+    color: black;
+    text-align: center;
+    font-size: 17px;
+    border-radius: 3px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 30%;
+    max-height: 50px;
+    padding: 10px;
+    margin: auto;
+    animation: popup-animation 0.4s;
+}
+.popup button{
+    padding: 5px;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 17px;
+    width: 50px;
+    border-radius: 3px;
+    color: gray;
+    border: 1px solid gray;
+    transition: 0.15s;
+}
+.popup button:hover{
+    background-color: gray;
+    color: white;
+}
+.keyboard-shortcuts{
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    background-color: gray;
+    padding: 10px;
+    border-radius: 10px;
+}
+section li{
+    margin-bottom: 12px;
+}
+
+.remove-display{
+    display: none;
+}
+.the-whole-page-really{
+    transition: 0.2s;
+    opacity: 0.5;
+}
+@keyframes popup-animation {
+    0% {transform: scale(0.5)};
+    100% {transform: scale(1)};
+}
+/* .move-button::after{
+    content: '';
+    position: absolute;
+    height: inherit;
+    border: inherit;
+    border-radius: inherit;
+    width: inherit;
+    bottom: -2px;
+    left: -2px;
+    background-color: red;
+    transform: scaleX(1);
+    opacity: 0.3;
+    animation: move-button 2s infinite;
+
+}
+.move-button:hover::after{
+    transform: scaleX(0);
+}
+@keyframes move-button {
+    00% {background-color: red;}
+    100% {background-color: blue;}
+} */
+ header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+}
+a{
+  text-decoration: none;
+  color: unset;
+}
+.js-the-whole-page-really{
+  display: flex;
+  flex-direction: row;
+  /* background-color: red; */
+  width: 80%;
+  border-radius: 10px;
+  margin: 20px auto;
+  min-height: 300px;
+  padding: 10px;
+  border: 1px solid white;
+}
+.player{
+  border-right: 1px solid white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 50%;
+}
+.display-result{
+  width: 50%;
+  padding-left: 20px;
+}
