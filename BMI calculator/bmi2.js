@@ -41,7 +41,7 @@ calculateBtn.addEventListener('click', ()=>{
     document.querySelector('.perspective').innerHTML = generateResult(selectedUnit);
     resetInput();
     console.log(selectedUnit)
-    // calculateBtn.classList.add('disabled');
+    calculateBtn.classList.add('disabled');
 })
 
 function calculateBMI(selectedUnit){
@@ -106,7 +106,7 @@ function generateResult(selectedUnit) {
     return theHtml 
 }
 function resetInput() {
-    playerName.innerHTML = ''
+    playerName.value = ''
     document.getElementById('interest-rate').value = '';
     document.getElementById('mortgage-term').value = '';
     

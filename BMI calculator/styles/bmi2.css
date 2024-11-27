@@ -143,7 +143,7 @@ input[type="radio"]:checked + label::before{
     border-bottom-left-radius: 70px;
     display: flex;
     flex-direction: column;
-    position: relative;
+    /* position: relative; */
   }
   
   .total-repayments, .result-display h2{
