@@ -167,9 +167,38 @@ a{
   display: flex;
   flex-direction: column;
   gap: 40px;
-  width: 50%;
 }
 .display-result{
-  width: 50%;
   padding-left: 20px;
+}
+
+@media (max-width: 1222px){
+    .js-the-whole-page-really{
+        flex-direction: column; 
+        padding: 20px;    
+    }
+    .player{
+        border: none;
+        align-items: center;
+        padding-bottom: 70px;   
+        border-bottom: 2px solid white;
+    }
+    .display-result{
+        padding-top: 70px;
+        justify-items: center;
+    }
+}
+@media (max-width: 600px){
+    .move-button{
+        height: 90px;
+        width: 90px;
+    }
+    img{
+        height: 35px;
+    }
+}
+@media (max-width: 375px) {
+    body{
+        /* display: none; */
+    }
 }

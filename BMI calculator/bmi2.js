@@ -44,6 +44,7 @@ calculateBtn.addEventListener('click', ()=>{
     calculateBtn.classList.add('disabled');
 })
 
+let weightDisplayed, heightDisplayed, displayUnit;
 function calculateBMI(selectedUnit){
     let weightInKg, heightInMeters;
     let bmiArray = [];
@@ -51,7 +52,7 @@ function calculateBMI(selectedUnit){
     height = parseFloat(document.getElementById('interest-rate').value)
     if (selectedUnit === 'imperial'){
         weightInKg = weight * 0.453592;
-        heightInMeters = height * 0.308
+        heightInMeters = height / 39.344 // 1ft = 0.305m; 12in = 0.305m; 1m = 
    } else if (selectedUnit === 'metric') {
         weightInKg = weight;
         heightInMeters = height 
@@ -71,7 +72,15 @@ function calculateBMI(selectedUnit){
   if (isNaN(bmi)){
     return ''
   }
-  bmiArray.push((bmi.toFixed(2)), category, ((playerName.value).toUpperCase()))
+  if (selectedUnit === 'metric'){
+    displayUnit = 'kilograms'
+  }
+  bmiArray.push({bmi: formatValue(bmi),
+     height: formatValue(heightInMeters),
+      weight: formatValue(weightInKg),
+       category, 
+        playerName: ((playerName.value).toUpperCase()),
+        selectedUnit: displayUnit})
   console.log(bmiArray)
   return bmiArray;
 }
@@ -82,12 +91,12 @@ function generateResult(selectedUnit) {
                 <div class="actual-result-display">
                     <div>
                       <p>Your BMI</p>
-                      <div class="monthly-repayments">${bmiArray[0]}</div>
+                      <div class="monthly-repayments">${bmiArray[0].bmi}</div>
                     </div>
                     <div class="division-line"></div>
                     <div>
                       <p>Your range</p>
-                      <div class="total-repayments">${bmiArray[1]}, ${bmiArray[2]}</div>
+                      <div class="total-repayments">${bmiArray[0].category}, ${bmiArray[0].playerName}</div>
                     </div>
                     <!-- <img src="./assets/images/illustration-empty.svg" alt="">
                     <h2>Results shown here</h2>
@@ -97,13 +106,16 @@ function generateResult(selectedUnit) {
                 </div>
                 <div class="recommendations">
                     <h2>RECOMMENDATIONS</h2>
-                    <p>Since your weight is ${bmiArray[0]} kilograms and your height is 180cm
-                        . That is a normal weight.
+                    <p>Since your weight is ${bmiArray[0].weight} ${bmiArray[0].selectedUnit} and your height is ${bmiArray[0].height}cm
+                        . ${bmiArray[0].category}.
                     </p>
                 </div>
             </div>`
 
     return theHtml 
+}
+function formatValue(value){
+    return value.toFixed(2)
 }
 function resetInput() {
     playerName.value = ''
@@ -111,3 +123,6 @@ function resetInput() {
     document.getElementById('mortgage-term').value = '';
     
 }
+document.getElementById('clear-button').addEventListener('click', ()=>{
+    resetInput()
+})

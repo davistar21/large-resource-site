@@ -12,6 +12,10 @@
     font-family: 'sansa';
     font-size: 16px;
   }
+  header img{
+    width: 40px;
+    height: 40px;
+  }
   .mortgage-calculator{
     display: flex;
     width: 70%;
@@ -22,7 +26,6 @@
     overflow: hidden;
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
   }
-  
   .player-information{
     display: flex;
     flex-direction: column;
@@ -194,6 +197,23 @@ input[type="radio"]:checked + label::before{
   .recommendations{
     color: inherit;
     transform: rotateY(180deg);
+  }
+  .recommendations h2{
+    position: relative;
+  }
+  .recommendations h2::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 3px;
+    bottom: -10px;
+    left: 0;
+    background-color: hsl(203, 41%, 72%);
+    transform: scaleX(0);
+    transition: 1s;
+  }
+  .recommendations h2:hover::after{
+    transform: scaleX(1);    
   }
   .actual-result-display div{
     display: flex;

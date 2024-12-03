@@ -43,11 +43,17 @@ function autoPlay() {
         autoPlayButtonElem.innerHTML = 'Stop Play';
         autoPlayButtonElem.classList.add('white-button')
         isAutoPlaying = true;
+        document.querySelectorAll('.move-button').forEach(button=>{
+            button.disabled = true;
+        })
     } else {
         clearInterval(intervalId);
         isAutoPlaying = false;
         autoPlayButtonElem.innerHTML = 'Auto Play';
         autoPlayButtonElem.classList.remove('white-button')
+        document.querySelectorAll('.move-button').forEach(button=>{
+            button.disabled = false;
+        })
     }
 }
 //adding the event listeners here

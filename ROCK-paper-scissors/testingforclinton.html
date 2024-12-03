@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinton</title>
+    <style>
+        body{
+            background-color: #274D60;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .page-container{
+            margin: 20px auto;
+            background-color: #6BA3BE;
+            width: 40%;
+            min-height: 300px;
+            padding: 30px;
+            border-radius: 30px;
+        }
+        h2{
+            text-align: center;
+        }
+        input{
+            width: 70px;
+            border-radius: 3px;
+            border: 1px solid transparent;
+            font-size: 20px;
+        }
+        .go-button{
+            background-color: #0A7075;
+            border-top: 1px solid white;
+            border-right: 1px solid white;
+            border-bottom: 1px solid white;
+            padding: 10px;
+            width: 80px;
+            color: white;
+        }
+        .number-of-numbers{
+            width: 70px;
+            padding: 10px;
+            border-radius: 0;
+            border: none;
+            font-size: unset;
+        }
+        .display{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 20px 0;
+            align-items: center;
+        }
+        .submit-button{
+            color: #0A7075;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #0A7075;
+            border-radius: 10px;
+            width: 100px;
+        }
+        .opening{
+            color: rgba(255, 255, 255, 0.743);
+            font-size: 26px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .baabaa{
+            display: flex;
+            justify-content: center;
+        }
+        .results{
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <h1>FIND THE LARGEST NUMBER TODAY!</h1>
+        <div class="opening">
+            How many numbers do you want to check?
+        </div>
+        <div class="baabaa">
+            <input type="number" class="number-of-numbers">
+            <button class="go-button">GO</button>
+        </div>
+        <div class="display"></div>
+        <div class="results"></div>    
+    </div>
+    
+    <script>
+        let totalNumberofNumbersElem = document.querySelector('.number-of-numbers')
+        totalNumberofNumbers = parseFloat(totalNumberofNumbersElem.value);
+        totalNumberofNumbersElem.focus()
+        let displayElem = document.querySelector('.display');
+        function displayNumbers() {
+            let theHtml = ''
+            for (let i = 0; i < Number(document.querySelector('.number-of-numbers').value); i++){
+                theHtml += `<div class="input-div">
+                    <label for="number${i}">Number ${i+1}</label>
+                    <input type="number" id="number${i}" class="player-number">
+                    </div>`
+                };
+            return theHtml;
+        }
+        document.querySelector('.go-button').addEventListener('click', ()=>{
+            displayElem.innerHTML = displayNumbers();
+            displayElem.innerHTML += `<button onclick="calculateMax()" class="submit-button">SUBMIT</button>`
+            totalNumberofNumbersElem.value = '';
+            totalNumberofNumbersElem.focus()
+        })
+        let numberArray = [];
+        let maxNumber = 0;
+       function calculateMax() {
+            document.querySelectorAll('.player-number').forEach(number =>{
+                numberArray.push(Number(number.value));
+            })
+            numberArray.forEach(number =>{
+                if (number > maxNumber) {
+                    maxNumber = number;
+                }
+            })
+            document.querySelector('.results').innerHTML = `Done! The largest number is ${maxNumber}`;
+            maxNumber = 0;  
+       }
+
+
+    </script>
+</body>
+</html>
