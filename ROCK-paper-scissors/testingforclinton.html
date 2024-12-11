@@ -124,7 +124,20 @@
             maxNumber = 0;  
        }
 
-
+       function eatFood (callback){
+        console.log("Making pizza...");
+        let i = 0
+        setInterval(()=>{
+            console.log(i)
+            i++
+        }, 1000)
+        setTimeout(()=>{
+            callback("Pizza is ready!");
+        }, 10000);
+       }
+       eatFood((message)=>{
+        console.log(message)
+       })
     </script>
 </body>
 </html>

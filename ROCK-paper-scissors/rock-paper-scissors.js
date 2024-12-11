@@ -91,7 +91,7 @@ document.querySelector('.reset-button').addEventListener('click', () => {
         document.querySelector('.popup').classList.add('remove-display')
         document.querySelector('.js-the-whole-page-really').classList.remove('the-whole-page-really')
     }),
-)
+)   
     
 })
 
