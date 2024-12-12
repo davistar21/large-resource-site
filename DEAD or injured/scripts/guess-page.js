@@ -3,8 +3,9 @@ import { toggleMenu } from "./toggleMenu.js";
 import { checkPlayerGuess } from "./utils/checkPlayerGuess.js";
 import generateSecretCode from "./utils/generateSecretCode.js";
 import moveToNext, { moveToPrevious } from "./utils/moveToNext.js";
+import playGame from "./utils/playGame.js";
 
-const ComputerSecretCode = generateSecretCode()
+const comCode = generateSecretCode();
 // const guessInputElem = document.querySelectorAll('.guess-input');
 const goButtonElem = document.querySelector('.go-button');
 const clearButtonElem = document.querySelector('.clear-button')
@@ -72,12 +73,13 @@ goButtonElem.addEventListener('click', ()=>{
 //    }
 //     playerGuessElem.value = '';
     playerGuess = playerGuessElem.value;
-    guessInformation.playerGuess = Number(playerGuess);
-
-    
+    guessInformation.playerGuess = playerGuess;
+    guessInformation.comCode = comCode;
+    playGame()
 
     playerGuessElem.value = '';
     goButtonElem.disabled = true;
-    // clearButtonElem.disabled = true;
+    clearButtonElem.disabled = true;
     
 });
+
