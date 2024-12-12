@@ -5,20 +5,20 @@ import generateSecretCode from "./utils/generateSecretCode.js";
 import moveToNext, { moveToPrevious } from "./utils/moveToNext.js";
 
 const ComputerSecretCode = generateSecretCode()
-const guessInputElem = document.querySelectorAll('.guess-input');
+// const guessInputElem = document.querySelectorAll('.guess-input');
 const goButtonElem = document.querySelector('.go-button');
 const clearButtonElem = document.querySelector('.clear-button')
 
 export let guessInformation;
 guessInformation = JSON.parse(localStorage.getItem('guessInformation', guessInformation))
-
+let playerGuessElem = document.querySelector('.player-guess');
 document.querySelector('.hamburger').addEventListener('click',()=>{toggleMenu()})
 
-document.getElementById('1').focus();
+// document.getElementById('1').focus();
 
 let playerGuess = '';
 
-guessInputElem.forEach(element => {
+/*guessInputElem.forEach(element => {
     element.addEventListener('input', (e)=>{
         playerGuess += element.value;
         let numberId = Number(element.id);
@@ -37,27 +37,47 @@ guessInputElem.forEach(element => {
             
         }
     })
-})
-goButtonElem.disabled = true;
+})*/
+clearButtonElem.disabled = true;
 clearButtonElem.addEventListener('click', ()=>{
-    guessInputElem.forEach(element => {
-        element.value = '';
-    })
-    // checkPlayerGuess(playerGuess)
-})
+    playerGuessElem.value = '';
+    clearButtonElem.disabled = true;
+    goButtonElem.disabled = true;
+});
 
 
 // console.log(guessInformation)
+playerGuessElem.addEventListener('input', (e)=>{
+    if (e.target.value.length === 4 && checkPlayerGuess(playerGuessElem.value)){
+        goButtonElem.disabled = false;
+    } else {
+        goButtonElem.disabled = true;
+    }
+    if(e.target.value.length !== 0){
+        clearButtonElem.disabled = false;
+    } else{
+        clearButtonElem.disabled = true;
+    }
+})
+goButtonElem.disabled = true;
 goButtonElem.addEventListener('click', ()=>{
-    
-    document.getElementById('1').focus();
-    guessInputElem.forEach(element => {
+    // document.getElementById('1').focus();
+    /*guessInputElem.forEach(element => {
         element.value = ''
-    })
-    guessInformation.playerGuess = Number(playerGuess)
-    console.log(guessInformation);
-    goButtonElem.disabled = true;
-    console.log(playerGuess)
-    playerGuess = '';
-});
+    })*/
+//    if(checkPlayerGuess(playerGuessElem.value)){
+//     goButtonElem.disabled = false;
+//     playerGuess = playerGuessElem.value;
+//     guessInformation.playerGuess = Number(playerGuess)
+//    }
+//     playerGuessElem.value = '';
+    playerGuess = playerGuessElem.value;
+    guessInformation.playerGuess = Number(playerGuess);
 
+    
+
+    playerGuessElem.value = '';
+    goButtonElem.disabled = true;
+    // clearButtonElem.disabled = true;
+    
+});
