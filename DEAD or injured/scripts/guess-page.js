@@ -81,8 +81,8 @@ goButtonElem.addEventListener('click', ()=>{
 //     guessInformation.playerGuess = Number(playerGuess)
 //    }
 //     playerGuessElem.value = '';
-playerGuessElem.focus();
-playerGuess = playerGuessElem.value;
+    playerGuessElem.focus();
+    playerGuess = playerGuessElem.value;
     guessInformation.playerGuess = playerGuess;
     guessInformation.comCode = comCode;
     guessDisplay.innerHTML += playGame();
