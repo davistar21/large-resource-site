@@ -57,6 +57,6 @@ document.querySelector('.redirect-to-guess-page').addEventListener('click', ()=>
     playerInformation.name = document.getElementById('name').value;
     playerInformation.email = document.getElementById('email').value;
 
-    localStorage.setItem('playerInformation', playerInformation)
+    localStorage.setItem('playerInformation', JSON.stringify(playerInformation));
 })
 

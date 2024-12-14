@@ -20,6 +20,14 @@ document.querySelector('.hamburger').addEventListener('click',()=>{toggleMenu()}
 let playerGuess = '';
 let guessDisplay = document.querySelector(".guess-display-result")
 
+let guessChancesLeft = document.querySelector(".guess-chances-left");
+let guessChancesLeftDots = document.querySelector(".chances-left-dots");
+guessChancesLeft.innerHTML = `You have ${guessInformation.totalGuessChances} chances!`
+for (let i = 0; i < guessInformation.totalGuessChances; i++ ){
+    guessChancesLeftDots.innerHTML += `<button></button>`
+}
+playerGuessElem.focus();
+
 /*guessInputElem.forEach(element => {
     element.addEventListener('input', (e)=>{
         playerGuess += element.value;
@@ -73,8 +81,8 @@ goButtonElem.addEventListener('click', ()=>{
 //     guessInformation.playerGuess = Number(playerGuess)
 //    }
 //     playerGuessElem.value = '';
-    playerGuessElem.focus();
-    playerGuess = playerGuessElem.value;
+playerGuessElem.focus();
+playerGuess = playerGuessElem.value;
     guessInformation.playerGuess = playerGuess;
     guessInformation.comCode = comCode;
     guessDisplay.innerHTML += playGame();

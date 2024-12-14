@@ -209,15 +209,15 @@ input[type="number"] {
     flex-direction: column;
     align-items: center;
 }
-.guess-chances div button{
+.chances-left-dots button{
     width: 10px;
     height: 10px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 50%;
     padding: 2px;
     background-color: white;
-    margin: 0 2px;
+    margin: 0 4px;
 }
-.guess-chances div button.disabled{
+.chances-left-dots button.disabled{
     opacity: 0.4;
 }
