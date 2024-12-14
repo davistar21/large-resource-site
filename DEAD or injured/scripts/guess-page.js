@@ -18,6 +18,7 @@ document.querySelector('.hamburger').addEventListener('click',()=>{toggleMenu()}
 // document.getElementById('1').focus();
 
 let playerGuess = '';
+let guessDisplay = document.querySelector(".guess-display-result")
 
 /*guessInputElem.forEach(element => {
     element.addEventListener('input', (e)=>{
@@ -72,10 +73,11 @@ goButtonElem.addEventListener('click', ()=>{
 //     guessInformation.playerGuess = Number(playerGuess)
 //    }
 //     playerGuessElem.value = '';
+    playerGuessElem.focus();
     playerGuess = playerGuessElem.value;
     guessInformation.playerGuess = playerGuess;
     guessInformation.comCode = comCode;
-    playGame()
+    guessDisplay.innerHTML += playGame();
 
     playerGuessElem.value = '';
     goButtonElem.disabled = true;
