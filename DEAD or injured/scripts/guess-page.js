@@ -4,6 +4,7 @@ import { checkPlayerGuess } from "./utils/checkPlayerGuess.js";
 import generateSecretCode from "./utils/generateSecretCode.js";
 import moveToNext, { moveToPrevious } from "./utils/moveToNext.js";
 import playGame from "./utils/playGame.js";
+import totalChances from "./utils/totalChances.js";
 
 const comCode = generateSecretCode();
 // const guessInputElem = document.querySelectorAll('.guess-input');
@@ -11,7 +12,7 @@ const goButtonElem = document.querySelector('.go-button');
 const clearButtonElem = document.querySelector('.clear-button')
 
 export let guessInformation;
-guessInformation = JSON.parse(localStorage.getItem('guessInformation', guessInformation))
+guessInformation = JSON.parse(localStorage.getItem('guessInformation', guessInformation));
 let playerGuessElem = document.querySelector('.player-guess');
 document.querySelector('.hamburger').addEventListener('click',()=>{toggleMenu()})
 
@@ -86,10 +87,10 @@ goButtonElem.addEventListener('click', ()=>{
     guessInformation.playerGuess = playerGuess;
     guessInformation.comCode = comCode;
     guessDisplay.innerHTML += playGame();
-
+    console.log(`Testing guessing limits: ${guessInformation.chancesLeft} chances left!`)
     playerGuessElem.value = '';
     goButtonElem.disabled = true;
     clearButtonElem.disabled = true;
     
 });
-
+console.log(guessInformation)

@@ -48,9 +48,9 @@ document.querySelector('.redirect-to-guess-page').addEventListener('click', ()=>
     // let {totalChance} = guessInformation;
     // totalChance = totalChances(difficulty)
     // guessInformation.totalChance = totalChances(difficulty)
-    const selectedDifficulty = document.getElementById('difficulty').value;
-    guessInformation.selectedDifficulty = selectedDifficulty
-    guessInformation.totalGuessChances = totalChances(selectedDifficulty)
+    let difficulty = document.getElementById('difficulty').value;
+    guessInformation.selectedDifficulty = difficulty
+    guessInformation.totalGuessChances = totalChances(difficulty);
 
     localStorage.setItem('guessInformation', JSON.stringify(guessInformation));
 
@@ -59,4 +59,3 @@ document.querySelector('.redirect-to-guess-page').addEventListener('click', ()=>
 
     localStorage.setItem('playerInformation', JSON.stringify(playerInformation));
 })
-
