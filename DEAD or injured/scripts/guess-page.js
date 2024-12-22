@@ -3,7 +3,7 @@ import { toggleMenu } from "./toggleMenu.js";
 import { checkPlayerGuess } from "./utils/checkPlayerGuess.js";
 import generateSecretCode from "./utils/generateSecretCode.js";
 import moveToNext, { moveToPrevious } from "./utils/moveToNext.js";
-import playGame from "./utils/playGame.js";
+import playGame, { displayChancesLeft } from "./utils/playGame.js";
 import totalChances from "./utils/totalChances.js";
 
 const comCode = generateSecretCode();
@@ -87,6 +87,7 @@ goButtonElem.addEventListener('click', ()=>{
     guessInformation.playerGuess = playerGuess;
     guessInformation.comCode = comCode;
     guessDisplay.innerHTML += playGame();
+    document.querySelector(".guess-chances").innerHTML = displayChancesLeft();
     console.log(`Testing guessing limits: ${guessInformation.chancesLeft} chances left!`)
     playerGuessElem.value = '';
     goButtonElem.disabled = true;

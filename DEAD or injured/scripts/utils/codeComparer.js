@@ -15,6 +15,6 @@ export default function compareCode(a, b){
         arrayObject.dead = dead;
         arrayObject.injured = injured;
         // console.log(`${dead} dead, ${injured} injured!`);
-    } else console.log("Failed!");
+    }
     return arrayObject;
 };
