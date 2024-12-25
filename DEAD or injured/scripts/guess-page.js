@@ -2,9 +2,7 @@
 import { toggleMenu } from "./toggleMenu.js";
 import { checkPlayerGuess } from "./utils/checkPlayerGuess.js";
 import generateSecretCode from "./utils/generateSecretCode.js";
-import moveToNext, { moveToPrevious } from "./utils/moveToNext.js";
 import playGame, { displayChancesLeft } from "./utils/playGame.js";
-import totalChances from "./utils/totalChances.js";
 
 const comCode = generateSecretCode();
 // const guessInputElem = document.querySelectorAll('.guess-input');
