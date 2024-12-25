@@ -1,0 +1,69 @@
+# Operating system files
+.DS_Store         # macOS
+Thumbs.db         # Windows
+
+# Node.js
+node_modules/
+
+# Python
+*.pyc
+__pycache__/
+
+# Java
+*.class
+*.log
+*.war
+*.jar
+
+# Visual Studio Code
+.vscode/
+
+# IntelliJ IDEA / JetBrains
+.idea/
+
+# Eclipse
+.project
+.classpath
+
+# macOS specific
+*.DS_Store
+
+# Windows specific
+*.bak
+*.swp
+*.tmp
+
+# Logs
+*.log
+
+# Environment files
+.env
+
+# Build files (for many languages)
+dist/
+build/
+out/
+
+# Dependency directories (for many package managers)
+bower_components/
+vendor/
+
+# npm / yarn / other package managers
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Temporary files created by IDEs or editors
+*.sublime-workspace
+*.sublime-project
+
+# Ruby
+*.gem
+*.rvmrc
+
+# Visual Studio
+.vs/
+.vs2019/
+
+# JetBrains IDEs
+*.iml
