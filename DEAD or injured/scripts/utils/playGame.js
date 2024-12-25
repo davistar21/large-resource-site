@@ -2,31 +2,31 @@ import { guessInformation } from "../guess-page.js";
 import compareCode from "./codeCOmparer.js";
 import saveToStorage from "./saveToStorage.js";
 
-let isCurrentlyPlaying = true;
-
-export default function playGame(){
+let isCurrentlyPlaying = false;
+export default function playGame(win, lose, endGame){
     let guessStatus = compareCode(guessInformation.comCode, guessInformation.playerGuess);
     guessInformation.dead = guessStatus.dead;
     guessInformation.injured = guessStatus.injured;
-    guessInformation.currentGuess = increaseCurrentGuess(guessInformation.currentGuess);
-    guessInformation.chancesLeft = guessInformation.totalGuessChances - guessInformation.currentGuess
-
     if (guessInformation.currentGuess < guessInformation.totalGuessChances){
+        isCurrentlyPlaying = true;
+        guessInformation.currentGuess = increaseCurrentGuess(guessInformation.currentGuess);
+        guessInformation.chancesLeft = guessInformation.totalGuessChances - guessInformation.currentGuess
+        console.log(isCurrentlyPlaying, guessInformation.comCode);
+        if(guessInformation.chancesLeft == 0 && guessInformation.playerGuess !== guessInformation.comCode){
+            lose();
+            isCurrentlyPlaying = false;
+        };
+        if(guessInformation.playerGuess === guessInformation.comCode){
+            console.log("You Win!");
+            win();
+            isCurrentlyPlaying = false
+        };
+        if(isCurrentlyPlaying == false) {
+            endGame()
+        }
         // saveToStorage(guessInformation);
         return `<div class="guess-display-result-each">${guessInformation.playerGuess}: ${guessStatus.dead} dead ${guessStatus.injured} injured</div>`
     }
-    if(guessInformation.playerGuess == guessInformation.comCode && isCurrentlyPlaying){
-        console.log("You win!");
-        isCurrentlyPlaying = false;
-        return `You win!`
-    }
-    if (guessInformation.currentGuess == guessInformation.totalGuessChances && isCurrentlyPlaying){
-        console.log("Game Over!");
-        isCurrentlyPlaying = false;
-        return `Game Over!`
-    };
-    
-    
 }
 
 const increaseCurrentGuess = guess => {return guess + 1};
@@ -48,3 +48,5 @@ export function displayChancesLeft() {
         ${notUsedDots}${usedDots}
         </div>`
     }
+
+

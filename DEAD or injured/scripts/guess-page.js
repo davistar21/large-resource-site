@@ -23,6 +23,7 @@ let guessDisplay = document.querySelector(".guess-display-result")
 
 let guessChancesLeft = document.querySelector(".guess-chances-left");
 let guessChancesLeftDots = document.querySelector(".chances-left-dots");
+let winLoseMessage = document.querySelector(".win-lose-message");
 guessChancesLeft.innerHTML = `You have ${guessInformation.totalGuessChances} chances!`
 for (let i = 0; i < guessInformation.totalGuessChances; i++ ){
     guessChancesLeftDots.innerHTML += `<button></button>`
@@ -54,6 +55,7 @@ clearButtonElem.addEventListener('click', ()=>{
     playerGuessElem.value = '';
     clearButtonElem.disabled = true;
     goButtonElem.disabled = true;
+    playerGuessElem.focus();
 });
 
 
@@ -68,6 +70,22 @@ playerGuessElem.addEventListener('input', (e)=>{
         clearButtonElem.disabled = false;
     } else{
         clearButtonElem.disabled = true;
+    }
+});
+playerGuessElem.addEventListener('keydown', (event) =>{
+    if (event.key == "Enter") {
+        playerGuessElem.focus();
+    playerGuess = playerGuessElem.value;
+    guessInformation.playerGuess = playerGuess;
+    guessInformation.comCode = comCode;
+    let displayResult = playGame(()=>{
+        // playerGuessElem.disabled = true;
+    });
+    guessDisplay.innerHTML += displayResult;
+    document.querySelector(".guess-chances").innerHTML = displayChancesLeft();
+    playerGuessElem.value = '';
+    goButtonElem.disabled = true;
+    clearButtonElem.disabled = true;
     }
 })
 goButtonElem.disabled = true;
@@ -86,12 +104,37 @@ goButtonElem.addEventListener('click', ()=>{
     playerGuess = playerGuessElem.value;
     guessInformation.playerGuess = playerGuess;
     guessInformation.comCode = comCode;
-    guessDisplay.innerHTML += playGame();
+    let displayResult = playGame(()=>{
+        winLoseMessage.innerHTML += `<p style="animation: enter-in 0.8s">You Win!</p>`;
+    }, ()=>{
+        winLoseMessage.innerHTML += `<p>You Lose!</p>`
+    }, () => {
+        console.log("EndGame function is working")
+        playerGuessElem.disabled = true;
+        winLoseMessage.innerHTML += `
+            <div>The secret code is ${guessInformation.comCode}</div>    
+            <div class="icon-div">
+                <button class="restart-button icon-button" id="restart-button">&rarr;</button> <!-- Hint -->
+                <span class="icon-text" >Restart</span>
+            </div>`
+            winLoseMessage.classList.add("win-lose-animation")
+            console.log(winLoseMessage)
+
+        });
+    
+
+
+    guessDisplay.innerHTML += displayResult;
     document.querySelector(".guess-chances").innerHTML = displayChancesLeft();
-    console.log(`Testing guessing limits: ${guessInformation.chancesLeft} chances left!`)
     playerGuessElem.value = '';
     goButtonElem.disabled = true;
     clearButtonElem.disabled = true;
     
 });
-console.log(guessInformation)
+// console.log(guessInformation)
+
+function resetGame(){
+    goButtonElem.disabled = false;
+    clearButtonElem.disabled = false;
+    playerGuessElem.value = ''
+}

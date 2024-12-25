@@ -37,6 +37,10 @@
     <div class="guess-container">
         <div class="guess-interaction">
             <section>
+                <div class="hint-div">
+                    <button class="hint-button icon-button">&uarr;</button> <!-- Hint -->
+                    <span class="hint-text icon-text">Hint</span>
+                </div>
                 <!--<div class="guess-input-container">
                     <input type="number" class="guess-input" id="1">
                     <input type="number" class="guess-input" id="2">
@@ -44,19 +48,18 @@
                     <input type="number" class="guess-input" id="4">
                 </div>-->
                 <div class="guess-input-container">
-                    <input type="number" class="player-guess">
+                    <input type="number" class="player-guess" placeholder="1234">
                 </div>
                 <button class="go-button">GO</button>
                 <button class="clear-button">CLEAR</button>
             </section>
             <div class="guess-chances">
-                <p class="guess-chances-left">You have 8 chances left</p>
-                <div class="chances-left-dots">
-                    <!-- <button class="disabled"></button> -->
-                </div>
+                <p class="guess-chances-left"></p>
+                <div class="chances-left-dots"></div>
             </div>
         </div>
         <div class="guess-display-result"></div>
+        <div class="win-lose-message"></div>
     </div>
 
     <script src="./scripts/guess-page.js" type="module"></script>
