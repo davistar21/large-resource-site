@@ -106,7 +106,7 @@ function generateResult(selectedUnit) {
                 </div>
                 <div class="recommendations">
                     <h2>RECOMMENDATIONS</h2>
-                    <p>Since your weight is ${bmiArray[0].weight} ${bmiArray[0].selectedUnit} and your height is ${bmiArray[0].height}cm
+                    <p>Since your weight is ${bmiArray[0].weight} ${bmiArray[0].selectedUnit} and your height is ${bmiArray[0].height}m
                         . ${bmiArray[0].category}.
                     </p>
                 </div>
