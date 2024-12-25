@@ -3,6 +3,9 @@ body{
     color: white;
     font-family: Arial;
 }
+html{
+    font-size: 20px;
+}
 img{
     height: 50px;
     
@@ -42,7 +45,7 @@ p{
 .autoplay-button{
     position: relative;
 }
-.autoplay-button::after, .keyboard-shortcuts::after{
+.autoplay-button::after{
     content: '';
     position: absolute;
     bottom: 0;
@@ -53,15 +56,12 @@ p{
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
-.autoplay-button:hover::after, .keyboard-shortcuts:hover::after{
+.autoplay-button:hover::after{
     transform: scaleX(1);
     border-radius: 50px;
 
 }
-.keyboard-shortcuts::after{
-    background-color: white;
-    transition: transform 1s;
-}
+
 .popup{
     position: fixed;
     background-color: rgb(194, 194, 194);
@@ -188,6 +188,11 @@ a{
         justify-items: center;
     }
 }
+@media(max-width: 760px){
+    .keyboard-shortcuts{
+        display: none;
+    }
+}
 @media (max-width: 600px){
     .move-button{
         height: 90px;
@@ -198,7 +203,28 @@ a{
     }
 }
 @media (max-width: 375px) {
+    .js-the-whole-page-really{
+        padding: 0px;
+    }
+    header h1{
+        font-size: 0.6rem;
+    }
+    .move-button{
+        height: 50px;
+        width: 50px;
+        margin: 0;
+        border: 2px solid white;
+    }
+    img{
+        height: 25px;
+    }
     body{
-        /* display: none; */
+        font-size: 0.8rem;
+    }
+    .player{
+        padding-bottom: 20px;
+    }
+    .display-result{
+        padding: 0;
     }
 }

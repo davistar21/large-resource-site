@@ -29,7 +29,7 @@ function pickComputerMove () {
  }
 function updateScoreElem() {
     document.querySelector('.js-score').innerHTML = 
-    `Wins: ${score.wins} | Ties: ${score.ties} | Losses: ${score.losses}.`
+    `Wins: ${score.wins} | Ties: ${score.ties} | Losses: ${score.losses}`
 }
 let isAutoPlaying = false;
 let intervalId;
