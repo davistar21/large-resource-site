@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'myFont';
-    src: url(../SpaceGrotesk[wght].ttf);
+    src: url(../../SpaceGrotesk[wght].ttf);
 }
 html{
     font-size: 10px;
@@ -342,4 +342,10 @@ input[type="number"] {
         border-top: 1px solid hsl(210, 46%, 95%);
         border-radius: 30px;
     }
-};
+}
+@media(max-width: 375px){
+    .guess-container{
+        width: 90%;
+        /* margin: 0 auto;s */
+    }
+}

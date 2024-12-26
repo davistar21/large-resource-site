@@ -104,3 +104,11 @@ select{
     font-size: 30px;
     color: hsl(0, 0%, 85%);
 }
+@media (max-width: 1000px){
+    .user-form{
+        width: 90%;
+    }
+    .form-step.active{
+        width: 75%;
+    }
+}

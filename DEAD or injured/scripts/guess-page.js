@@ -73,17 +73,34 @@ playerGuessElem.addEventListener('input', (e)=>{
 playerGuessElem.addEventListener('keydown', (event) =>{
     if (event.key == "Enter") {
         playerGuessElem.focus();
-    playerGuess = playerGuessElem.value;
-    guessInformation.playerGuess = playerGuess;
-    guessInformation.comCode = comCode;
-    let displayResult = playGame(()=>{
-        // playerGuessElem.disabled = true;
-    });
-    guessDisplay.innerHTML += displayResult;
-    document.querySelector(".guess-chances").innerHTML = displayChancesLeft();
-    playerGuessElem.value = '';
-    goButtonElem.disabled = true;
-    clearButtonElem.disabled = true;
+        playerGuess = playerGuessElem.value;
+        guessInformation.playerGuess = playerGuess;
+        guessInformation.comCode = comCode;
+        let displayResult = playGame(()=>{
+            winLoseMessage.innerHTML += `<p style="animation: enter-in 0.8s">You Win!</p>`;
+        }, ()=>{
+            winLoseMessage.innerHTML += `<p>You Lose!</p>`
+        }, () => {
+            console.log("EndGame function is working")
+            playerGuessElem.disabled = true;
+            winLoseMessage.innerHTML += `
+                <div>The secret code is ${guessInformation.comCode}</div>    
+                <div class="icon-div">
+                    <button class="restart-button icon-button" id="restart-button">&rarr;</button> <!-- Hint -->
+                    <span class="icon-text" >Restart</span>
+                </div>`
+                winLoseMessage.classList.add("win-lose-animation")
+                console.log(winLoseMessage)
+
+            });
+        
+
+
+        guessDisplay.innerHTML += displayResult;
+        document.querySelector(".guess-chances").innerHTML = displayChancesLeft();
+        playerGuessElem.value = '';
+        goButtonElem.disabled = true;
+        clearButtonElem.disabled = true;
     }
 })
 goButtonElem.disabled = true;
