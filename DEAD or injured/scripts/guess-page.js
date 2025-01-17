@@ -153,3 +153,4 @@ function resetGame(){
     clearButtonElem.disabled = false;
     playerGuessElem.value = ''
 }
+

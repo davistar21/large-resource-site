@@ -10,6 +10,9 @@ body{
     font-family: 'Inter', sans-serif;
     background-color: hsl(208, 100%, 92%);
 }
+body.dark{
+    background: rgb(0, 0, 43);
+}
 a{
     text-decoration: none;
     color: black;
@@ -21,4 +24,18 @@ header{
 header img{
     width: 30px;
     height: auto;
+}
+.dark-mode-button{
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    font-size: 30px;
+    background: linear-gradient(to left, rgb(29, 75, 227), rgb(25, 159, 203));
+    color: white;
+}
+body.dark .dark-mode-button{
+    border-color: white;
+    background: linear-gradient(to bottom right, #000068, rgb(9, 139, 137));
 }

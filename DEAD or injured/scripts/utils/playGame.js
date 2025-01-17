@@ -23,6 +23,12 @@ export default function playGame(win, lose, endGame){
         };
         if(isCurrentlyPlaying == false) {
             endGame()
+        };
+        if (guessInformation.chancesLeft == 3){
+            if (!document.querySelector('.guess-chances-left').classList.contains('red-shake-animation')){
+                console.log(document.querySelector('.guess-chances-left').classList)
+            }
+            document.querySelector('.guess-chances-left').classList.add('red-shake-animation')
         }
         // saveToStorage(guessInformation);
         return `<div class="guess-display-result-each">${guessInformation.playerGuess}: ${guessStatus.dead} dead ${guessStatus.injured} injured</div>`
@@ -42,11 +48,16 @@ export function displayChancesLeft() {
     for (let i = 0; i < used; i++){
         usedDots += `<button class="disabled"></button>`
     }
+    if (notUsed == 1){
+        return `<p class="guess-chances-left">You have ${notUsed} chance left</p>
+        <div class="chances-left-dots">
+        ${notUsedDots}${usedDots}
+        </div>`
+    }
     return `
         <p class="guess-chances-left">You have ${notUsed} chances left</p>
         <div class="chances-left-dots">
         ${notUsedDots}${usedDots}
         </div>`
     }
-
 

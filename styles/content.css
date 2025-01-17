@@ -7,7 +7,6 @@
     gap: 10px;
 }
 .content{
-    background-color: gray;
     padding: 10px;
     border-radius: 12px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
@@ -123,4 +122,45 @@
     font-family: 'Plus-Jakarta';
     font-weight: 700;
     text-align: center;
+}
+
+body.dark .content1{
+    background: linear-gradient(to bottom left, #ff9a9a, #d5ea79);
+    color: black;
+}
+body.dark .content2{
+    background: linear-gradient(to top right, #afcbff, rgb(94, 161, 206));
+    color: black;
+}
+body.dark .content3{
+    background: linear-gradient(to bottom right, #4d044d, #670bad);
+    color: white;
+}
+body.dark .content4{
+    background: linear-gradient(to top left, #080a5c, #07596e);
+    color: white;
+}
+body.dark .content5{
+    background: linear-gradient(to bottom left, #cde59e, #75e659);
+    color: black;
+}
+body.dark .content6{
+    background: linear-gradient(to top right, #103944, rgb(0, 117, 128));
+    color: white;
+}
+body.dark .content7{
+    background: linear-gradient(to bottom right, #826a80, #f9cbcb);
+    color: black;
+}
+body.dark .content8{
+    background: linear-gradient(to bottom right, #ffcdcd, #9d5959);
+    color: black;
+}
+body.dark .content9{
+    background: linear-gradient(to bottom left, #a9aff7, #9269dd);
+    color: black;
+}
+body.dark .content10{
+    background: linear-gradient(to top right,#10916f, #0e4c0c);
+    color: white;
 }
