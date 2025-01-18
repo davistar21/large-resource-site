@@ -18,6 +18,7 @@
     transform: scale(1.03);
     cursor: pointer;
     border: 1px solid black;
+    
 }
 @keyframes fade-in-up {
     from {
@@ -38,7 +39,7 @@
 .content2 {
     grid-column: span 1;
     background-color: hsl(208, 58%, 22%);
-    color: white
+    color: white;
 }
 
 .content3 {
@@ -122,6 +123,9 @@
     font-family: 'Plus-Jakarta';
     font-weight: 700;
     text-align: center;
+    /* background: linear-gradient(to right, rgb(94, 252, 255), rgb(73, 150, 173));
+    background-clip: text;
+    color: transparent; */
 }
 
 body.dark .content1{

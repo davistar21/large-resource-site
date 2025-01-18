@@ -17,7 +17,21 @@ window.addEventListener('scroll', ()=>{
     checkScroll()
 })
 
+let isDarkMode = JSON.parse(localStorage.getItem('isDarkMode'));
+if(isDarkMode){
+    document.body.classList.add('dark')
+} else {
+    document.body.classList.remove('dark')
+}
+
 const darkModeButton = document.getElementById('dark-mode-button');
 darkModeButton.addEventListener('click', ()=>{
-    document.body.classList.toggle('dark')
+    let isDarkMode = document.body.classList.toggle('dark');
+    localStorage.setItem('isDarkMode', JSON.stringify(isDarkMode))
 })
+
+
+// let first = 'first';
+// localStorage.setItem('myFirst', JSON.stringify(first));
+// let myAFirst = JSON.parse(localStorage.getItem('myFirst'));
+// console.log(myAFirst)
