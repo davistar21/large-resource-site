@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hangman's Game</title>
+  <link rel="stylesheet" href="./hangman.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <header>
+    <a href="../index.html"><img src="../images/icons/home.svg" alt="HOME"></a>
+    <button class="dark-mode-button"><i class="fa-solid fa-lightbulb dark-mode-icon"></i></button>
+    <div>
+      <a href="./crude.html" target="_blank"><img src="./images/membrane-logo.png" alt="" class="logo"></a>
+    </div>
+    <!-- <button><i class="fa-solid fa-thumbs-up"></i></button> -->
+    <!-- <img src="./images/lightbulb_icon.jfif" alt=""> -->
+     <!-- <button>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="black">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+    </svg>
+    
+     </button> -->
+  </header>
+  <main>
+    
+    <div class="empty-boxes"></div>
+    <div class="hint"></div>
+    <div class="action-buttons">
+      <button class="more-hints-button">More Hints</button>
+      <button class="first-letter-button">First Letter</button>
+      <button class="random-letter-button">Random Letter</button>
+    </div>
+    <div class="letters">
+      
+    </div>
+    <div class="progress-circle">
+      <svg viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="70"></circle>
+        <circle cx="100" cy="100" r="70" id="progressCircle"></circle>
+      </svg>
+    </div>
+  </main>
+
+
+  <script src="./hangman.js" type="module"></script>
+</body>
+</html>
