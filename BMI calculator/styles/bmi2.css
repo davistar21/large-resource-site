@@ -51,7 +51,7 @@ header{
   color: hsl(200, 83%, 18%);
   font-weight: 600;
 }
-body.dark .dark-mode-button{
+body.dark .dark-mode-button, body.dark a{
   border-color: hsl(61, 70%, 52%);
   color: hsl(61, 70%, 52%);
 }
