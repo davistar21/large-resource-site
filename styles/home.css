@@ -9,7 +9,6 @@
 body{
     font-family: 'Inter', sans-serif;
     background-color: hsl(208, 100%, 92%);
-    margin: 0
 }
 body.dark{
     background: rgb(0, 0, 43);

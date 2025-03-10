@@ -197,5 +197,6 @@ body.dark .radio-input-div{
 @media (max-width: 450px) {
   .radio-input-div{
     width: 50px;
+    font-size: 80%;
   }
 }

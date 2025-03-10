@@ -1,6 +1,11 @@
+import handleDarkMode from "../utils/handleDarkMode.js";
+
 document.querySelector('.perspective').addEventListener('click', ()=>{
     document.querySelector('.perspective').classList.toggle('active')
 })
+
+handleDarkMode()
+
 let playerName = document.getElementById('mortgage-amount')
 playerName.focus();
 let weightElem = document.getElementById('mortgage-term')
@@ -44,7 +49,7 @@ calculateBtn.addEventListener('click', ()=>{
     calculateBtn.classList.add('disabled');
 })
 
-let weightDisplayed, heightDisplayed, displayUnit;
+let weight, height, displayUnit;
 function calculateBMI(selectedUnit){
     let weightInKg, heightInMeters;
     let bmiArray = [];
