@@ -131,6 +131,8 @@ body.dark .header div::after{
   padding: 10px;
   border-radius: 3px;
   border: 2px solid hsl(200, 83%, 18%);
+  cursor: pointer;
+  transition: background-color 0.25s;
   /* border-image: linear-gradient(to right, hsla(75, 83%, 60%, 0.718), hsl(93, 20%, 30%)) 1; */
   /* border-image-outset: 0;
   border-image-slice: 30;
@@ -171,6 +173,12 @@ input[type="radio"]{
 body.dark .radio label::before{
   background-color: gray;
   border-color: #c8c8c8;
+}
+.radio:has(input[type="radio"]:checked){
+  background-color: hsla(203, 41%, 72%, 0.2);
+}
+body.dark .radio:has(input[type="radio"]:checked) {
+  background-color: hsla(61, 70%, 52%, 0.2);
 }
 .radio:has(input[type="radio"]:checked) label::before{
   background-color: hsl(200, 83%, 18%);

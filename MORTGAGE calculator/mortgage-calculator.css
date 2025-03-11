@@ -1,0 +1,323 @@
+  @font-face {
+  font-family: 'sansa';
+  src: url(./assets/fonts/PlusJakartaSans-VariableFont_wght.ttf);
+}
+body{
+  font-family: 'sansa';
+  background-color: rgb(220, 220, 255);
+}
+html{
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+a{
+  text-decoration: none;
+  color: unset;
+}
+input{
+  font-family: 'sansa';
+  font-size: 16px;
+}
+input.error {
+  border: 2px solid red;
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+  border-color: blue;
+}
+.input-div{
+  display: flex;
+  align-items: center;
+  transition: 0.15s;
+}
+.input-div input{
+  flex: 1;
+  padding: 15px;
+  cursor: pointer;
+}
+.mortgage-amount-item input{
+  border-radius: 0 5px 5px 0;
+  border-left: none;
+}
+.mortgage-amount-item:has(input:focus) input{
+  border: 2px solid hsl(61, 70%, 52%);
+}
+.mortgage-amount-item span{
+  border: 2px solid black;
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  padding: 15px 20px;
+}
+.mortgage-amount-item:has(input:focus) span{
+  border-color: hsl(61, 70%, 52%);
+  background-color: hsl(61, 70%, 52%);
+}
+.interest-rate-item input, .mortgage-term-item input{
+  border-radius: 5px 0 0 5px;
+  border-right: none;
+}
+.interest-rate-item:has(input:focus) input, .mortgage-term-item:has(input:focus) input{
+  border-color: hsl(203, 41%, 72%);
+}
+.interest-rate-item span, .mortgage-term-item span{
+  border: 2px solid black;
+  border-radius: 0px 5px 5px 0px;
+  border-left: none;
+  padding: 15px 20px;
+}
+.interest-rate-item:has(input:focus) span, .mortgage-term-item:has(input:focus) span{
+  background: hsl(202, 86%, 94%);
+  border-color: hsl(203, 41%, 72%);
+}
+.mortgage-calculator{
+  display: flex;
+  width: 70%;
+  min-height: 500px;
+  margin: 100px auto;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+}
+
+.player-information{
+  display: flex;
+  flex-direction: column;
+  padding: 20px 50px;
+}
+.player-information .header{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: baseline;
+}
+.player-information .header div{
+  color: hsl(200, 83%, 18%);
+  cursor: pointer;
+  position: relative;
+}
+.player-information .header div:hover::after{
+  transform: scaleX(1);
+}
+.player-information .header div:after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: hsl(200, 93%, 11%);
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+.mortgage-calculator form{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+.mortgage-amount-item, .mortgage-type-item{
+  grid-column: span 2;
+}
+.form-item{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+.form-item input, .form-item span{
+  font-weight: 900;
+  color: hsl(0, 0%, 35%);
+  position: relative;
+  transition: 0.1s;
+}
+.radio{
+  padding: 15px;
+  border-radius: 3px;
+  border: 2px solid hsl(200, 83%, 18%);
+  position: relative;
+  transition: 0.15s;
+  cursor: pointer;
+  /* border-image: linear-gradient(to right, hsla(75, 83%, 60%, 0.718), hsl(93, 20%, 30%)) 1; */
+  /* border-image-outset: 0;
+  border-image-slice: 30;
+  border-image-width: 30;
+  background-clip: padding-box; */
+}
+input[type="radio"]{
+  opacity: 0;
+}
+input[type="radio"] + label::before{
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  left: 2.3%;
+  top: 35%;
+}
+input[type="radio"] + label::after{
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 1px solid black;
+  border-radius: 50%;
+  left: 1.85%;
+  top: 30%;
+  border: 1px solid black;
+}
+input[type="radio"]:checked + label::before{
+  background-color: hsl(61, 70%, 52%);
+}
+input[type="radio"]:checked + label::after{
+  border: 1px solid hsl(61, 70%, 52%)
+}
+.radio:has(input:checked) {
+  background-color: hsla(61, 70%, 52%, 0.15);
+  border-color: hsl(61, 70%, 52%);
+  color: hsl(61, 87%, 42%);
+}
+.radio-div{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.radio-div label {
+  font-weight: 900;
+}
+.calculate-button{
+  display: flex;
+  background-color: hsl(61, 70%, 52%);
+  border-radius: 50px;
+  min-width: 200px;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 15px 0;
+}
+.calculate-button p{
+  margin: 0;
+}
+.result-display{
+  background-color: hsl(200, 83%, 18%);
+  padding: 20px 50px 50px 50px; 
+  border-bottom-left-radius: 70px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.total-repayments, .result-display h2{
+  color: hsl(202, 86%, 94%);
+}
+.total-repayments{
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.result-display p{
+  color: hsl(203, 41%, 72%);
+  margin: 0;
+  text-align: justify;
+}
+.monthly-repayments{
+  color: hsl(61, 70%, 52%);
+  font-size: 3rem;
+  font-weight: 600;
+}
+.actual-result-display{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: hsl(200, 93%, 11%);
+  padding: 30px 40px;
+  border-radius: 10px;
+  gap: 40px;
+  margin-top: 30px;
+  border-top: 4px solid hsl(61, 70%, 52%);
+} 
+.actual-result-display div{
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  
+}
+.division-line{
+  width: 100%;
+  background-color: hsl(203, 41%, 72%);
+  opacity: 0.5;
+  height: 1px;
+}
+.empty-illustration-div img{
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+} 
+@media(max-width: 1400px) {
+  .mortgage-calculator{
+    flex-direction: column;
+    border-radius: 10px;
+  }
+  .result-display{
+    border-bottom-left-radius: 0;
+  }
+}
+@media (max-width: 1020px) {
+  .player-information form{
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (max-width: 775px) {
+  .mortgage-calculator{
+    width: 80%;
+  }
+  .monthly-repayments{
+    font-size: 2rem;
+  }
+  .result-display p{
+    text-align: left;
+    font-size: 0.9em
+  }
+  .calculate-button{
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 3px;
+    border: 2px solid black;
+  }
+  .calculate-button img, .player-information .header div{
+    display: none;
+  }
+  .player-information .header{
+    justify-content: center;
+  }
+  .player-information .header h1{
+    font-size: 1.5rem;
+  }
+  .player-information .header::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: hsl(72, 7%, 85%);
+    bottom: 20%;
+    border-radius: 30px;
+  }
+}
+@media (max-width: 475px) {
+  .mortgage-calculator {
+    width: 95%;
+  }
+  .player-information, .result-display{
+    padding: 20px;
+  }
+  .player-information .header h1{
+    font-size: 1rem;
+  }
+  .player-information form div label, input, span{
+    font-size: 0.7rem;
+  }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="stylesheet" href="./mortgage-calculator.css">
+
+  <title>Mortgage Calculator</title>
+</head>
+<body>
+  <div class="mortgage-calculator">
+    <div class="player-information">
+      <div class="header">
+        <h1>Mortgage Calculator</h1>
+        <div id="clear-button">Clear All</div>
+      </div>
+      <form action="" id="mortgageForm">
+        <div class="form-item mortgage-amount-item">
+          <label for="mortgage-amount">Mortgage Amount</label>
+          <div class="input-div">
+            <span>$</span>
+            <input type="number" name="mortgageAmount" id="mortgageAmount" required> 
+          </div>
+        </div>
+        <div class="form-item mortgage-term-item">
+          <label for="mortgage-term">Mortgage Term</label>
+          <div class="input-div">
+            <input type="number" name="mortgageTerm" id="mortgageTerm" required>
+            <span>years</span>
+          </div>
+        </div>
+        <div class="form-item interest-rate-item">
+          <label for="interest-rate">Interest Rate</label>
+          <div class="input-div">
+            <input type="number" name="interestRate" id="interestRate" required>
+            <span>%</span>
+          </div>
+        </div>
+        <div class="form-item mortgage-type-item">
+          <label for="mortgage-type">Mortgage Type</label>
+          <div class="radio-div">
+            <label class="radio">
+              <input type="radio" name="radio" id="radio-1" value="repayment">
+              <label for="radio-1">Repayment</label>
+            </label>
+            <label class="radio">
+              <input type="radio" name="radio" id="radio-2" value="interest-rate">
+              <label for="radio-2">Interest Rate</label>
+            </label>
+          </div>
+        </div>
+        <a class="calculate-button" href="#resultDisplay">
+          <img src="./assets/images/icon-calculator.svg" alt="">
+          <p>Calculate Repayments</p>
+        </a>
+        
+      </form>
+    </div>
+    <div class="result-display" id="resultDisplay">
+      <h2>Your results</h2>
+      <p>Your results are shown below based on the information you provided. 
+        To adjust the results, edit the form and click “calculate repayments again.</p>
+      <div class="actual-result-display">
+        <!-- <div>
+          <p>Your monthly repayments</p>
+          <div class="monthly-repayments">N1699.99</div>
+        </div>
+        <div class="division-line"></div>
+        <div>
+          <p>Total you'll repay over the term</p>
+          <div class="total-repayments">N234099.99</div>
+        </div> -->
+        <div class="empty-illustration-div">
+          <img src="./assets/images/illustration-empty.svg" alt="">
+          <h2>Results shown here</h2>
+          <p>Complete the form please and click "calculate
+            repayments" if you want to see it.
+          </p> 
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="./scripts/mortgage-cl.js"></script>
+</body>
+</html>
