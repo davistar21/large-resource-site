@@ -1,3 +1,38 @@
+@media (min-width: 700px) {
+    .all{
+        /* overflow: scroll; */
+    }    
+
+html{
+    scroll-behavior: smooth;
+}
+/* WebKit Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.5); /* Semi-transparent */
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(85, 85, 85, 0.7); /* Slightly darker on hover */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(241, 241, 241, 0.5); /* Semi-transparent */
+    border-radius: 4px;
+  }
+  
+  /* Firefox Scrollbar */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(136, 136, 136, 0.5) rgba(241, 241, 241, 0.5);
+  }
+
+}
 .all{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -16,9 +51,9 @@
 }
 .content:hover{
     transform: scale(1.03);
+    opacity: 0.9;
     cursor: pointer;
     border: 1px solid black;
-    
 }
 @keyframes fade-in-up {
     from {

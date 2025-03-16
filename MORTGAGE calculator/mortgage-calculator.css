@@ -132,18 +132,18 @@ input:focus {
   position: relative;
   transition: 0.1s;
 }
-.radio{
+/* .radio{
   padding: 15px;
   border-radius: 3px;
   border: 2px solid hsl(200, 83%, 18%);
   position: relative;
   transition: 0.15s;
   cursor: pointer;
-  /* border-image: linear-gradient(to right, hsla(75, 83%, 60%, 0.718), hsl(93, 20%, 30%)) 1; */
-  /* border-image-outset: 0;
+  border-image: linear-gradient(to right, hsla(75, 83%, 60%, 0.718), hsl(93, 20%, 30%)) 1;
+  border-image-outset: 0;
   border-image-slice: 30;
   border-image-width: 30;
-  background-clip: padding-box; */
+  background-clip: padding-box;
 }
 input[type="radio"]{
   opacity: 0;
@@ -179,11 +179,60 @@ input[type="radio"]:checked + label::after{
   background-color: hsla(61, 70%, 52%, 0.15);
   border-color: hsl(61, 70%, 52%);
   color: hsl(61, 87%, 42%);
-}
+} */
 .radio-div{
   display: flex;
   flex-direction: column;
   gap: 10px;
+} 
+.radio-div input[type="radio"]{
+  display: none;
+ }
+.radio-div label{
+  padding: 15px;
+  border-radius: 3px;
+  border: 2px solid hsl(200, 83%, 18%);
+  position: relative;
+  transition: 0.15s;
+  cursor: pointer;
+  /*border-image: linear-gradient(to right, hsla(75, 83%, 60%, 0.718), hsl(93, 20%, 30%)) 1;
+  border-image-outset: 0;
+  border-image-slice: 30;
+  border-image-width: 30;
+  background-clip: padding-box;*/
+ }
+.custom-radio{
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid hsl(0, 0%, 80%);
+  border-radius: 50%;
+  position: relative;
+  margin-right: 5px;
+  vertical-align: middle;
+  transition: border-color 0.15s;
+}
+.custom-radio::after{
+  position: absolute;
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.radio:has(input[type="radio"]:checked) {
+  background-color: hsla(61, 70%, 52%, 0.15);
+  border-color: hsl(61, 70%, 52%);
+  color: hsl(61, 87%, 42%);
+}
+.radio:has(input[type="radio"]:checked) .custom-radio{
+  border-color: hsl(61, 70%, 52%);
+}
+.radio:has(input[type="radio"]:checked) .custom-radio::after{
+  background-color: hsl(61, 70%, 52%);
 }
 .radio-div label {
   font-weight: 900;
