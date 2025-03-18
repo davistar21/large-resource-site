@@ -73,9 +73,9 @@ input:focus {
 }
 .mortgage-calculator{
   display: flex;
-  width: 70%;
   min-height: 500px;
-  margin: 100px auto;
+  margin: 100px;
+  justify-content: space-between;
   background-color: white;
   border-radius: 20px;
   overflow: hidden;
