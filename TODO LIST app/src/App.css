@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'Karla';
+  src: url(./Karla-VariableFont_wght.ttf);
+}
+body{
+  font-family: 'Karla', sans-serif;
+  background: 
+    /* linear-gradient(135deg, rgba(255, 0, 0, 0.386), blue), */
+    /* linear-gradient(2deg, white, green) */
+  ;
+  /* background: rgb(231, 245, 249); */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.app{
+  width: 60%;
+  margin: 100px auto;
+  min-height: 500px;
+  background: rgb(201, 201, 231);
+  border-radius: 20px;
+  padding: 20px;
+}
