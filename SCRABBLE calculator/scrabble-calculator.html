@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrabble Calculator</title>
+    <link rel="stylesheet" href="./scrabble-calculator.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html">HOME</a>
+    </header>
+    <div class="page-container">
+        <div class="interact">
+            <label for="word" class="word">Word</label>
+            <input type="text" class="word-input" id="word" placeholder="e.g. QUANDARY">
+            <button class="score-button">&rarr;</button>
+        </div>
+        <div class="result" id="#resultSection"></div>
+        <div class="upper-history">
+            <button class="clear-history">&times;</button>
+            <div class="history"></div>
+        </div>
+    </div>
+    <script src="./scrabble-calculator.js" type="module"></script>
+</body>
+</html>

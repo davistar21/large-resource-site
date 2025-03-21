@@ -1,0 +1,12 @@
+For Planning Steps
+when i click the double button, it doubles the 
+score value of the letter and then changes the 
+display on the page
+when i click the triple button, the same
+should happen, but the score value should be
+tripled
+
+solution steps: create a function that takes 
+the score value, multiplies by either two or
+three, and then returns the score value
+
