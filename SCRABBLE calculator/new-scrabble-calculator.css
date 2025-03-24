@@ -1,0 +1,121 @@
+@font-face {
+  font-family: 'my-font';
+  src: url(../WorkSans-VariableFont_wght.ttf);
+}
+body{
+  font-family: 'my-font', sans-serif;
+  background: #dbf4ef;
+  font-size: 20px;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border: 2px solid black;
+  border-radius: 20px
+}
+input{
+  all: unset;
+  border-bottom: 2px solid black;
+  border-radius: 2px;
+  padding-bottom: 8px;
+  text-align: center;
+}
+input::placeholder{
+  /* color: #ffffffbb; */
+  color: black;
+}
+button{
+  all: unset;
+  border: 2px solid hsl(61, 70%, 52%);
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.play-button:active{
+}
+main{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  /* min-height: 60vh; */
+  margin: 50px auto;
+  border: 2px solid black;
+  border-radius: 20px;
+  /* padding: 20px; */
+  /* gap: 10px; */
+  overflow: hidden;
+}
+form, section{
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  flex-shrink: 0;
+  align-items: center;
+  background: rgb(14, 107, 169);
+  background-color: #004d51;
+  color: white;
+  padding: 50px;
+  min-height: 10em;
+  gap: 30px;
+}
+form{
+  background: none;
+  color: black;
+  flex-direction: column;
+}
+section{
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom-left-radius: 30px;
+}
+
+section em{
+  all: unset;
+  position: relative;
+  border-radius: 10px;
+  /* color: hsl(61, 70%, 52%); */
+  border: 2px solid hsl(61, 70%, 52%);
+  padding: 12px 10px;
+  min-height: 30px;
+  width: 20px;
+  text-align: center;
+}
+section em span{
+  position: absolute;
+  font-size: 13px;
+  right: 15%;
+  top: 0;
+}
+.tile-block{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  font-size: 25px;
+}
+@media (max-width: 1300px){
+  form, section{
+    padding: 25px;
+  }
+}
+@media (max-width: 1000px) {
+  main{
+    flex-direction: column;
+  }
+  section {
+    border-radius: unset;
+    width: 100%;
+  }
+}
+@media (max-width: 650px) {
+  main {
+    width: 80%;
+  }
+}

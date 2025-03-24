@@ -3,6 +3,9 @@ import { handleDarkMode } from "./utils/dark-mode.js";
 import { shuffleArray } from "./utils/shuffle-array.js";
 
 handleDarkMode()  
+const circle = document.getElementById('progressCircle');
+const dashoffset = 440 - (440 * 10) / 100; // 440 is full circumference
+circle.style.strokeDashoffset = dashoffset;
 
 document.querySelector('.more-hints-button').addEventListener('click', () => {
   document.querySelector('.action-buttons').classList.toggle('active')
@@ -91,6 +94,3 @@ function drop (e) {
 
 
 
-const circle = document.getElementById('progressCircle');
-const dashoffset = 440 - (440 * 10) / 100; // 440 is full circumference
-circle.style.strokeDashoffset = dashoffset;
