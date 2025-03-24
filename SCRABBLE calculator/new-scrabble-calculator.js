@@ -126,7 +126,7 @@ let scoreValue = 0;
 wordInput.focus()
 $('form').addEventListener('submit', (e) => e.preventDefault())
 wordInput.addEventListener('input', (e) => {
-  showTiles(e.target.value)
+  // showTiles(e.target.value)
 })
 playBUttonElem.addEventListener('click', () => {
   showTiles(wordInput.value)
@@ -155,7 +155,7 @@ function showTiles(word) {
 
     document.querySelectorAll('.letter-tile').forEach(tile => {
       tile.addEventListener('click', () => {
-        
+
       })
     })
   })
