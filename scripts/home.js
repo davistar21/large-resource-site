@@ -1,3 +1,5 @@
+import handleDarkMode from "../utils/handleDarkMode.js";
+
 const contentScroll = document.querySelectorAll('.content');
 
 function checkScroll () {
@@ -24,14 +26,16 @@ if(isDarkMode){
     document.body.classList.remove('dark')
 }
 
-const darkModeButton = document.getElementById('dark-mode-button');
-darkModeButton.addEventListener('click', ()=>{
-    let isDarkMode = document.body.classList.toggle('dark');
-    localStorage.setItem('isDarkMode', JSON.stringify(isDarkMode))
-})
+// const darkModeButton = document.getElementById('dark-mode-button');
+// darkModeButton.addEventListener('click', ()=>{
+//     let isDarkMode = document.body.classList.toggle('dark');
+//     localStorage.setItem('isDarkMode', JSON.stringify(isDarkMode))
+// })
 
 
 // let first = 'first';
 // localStorage.setItem('myFirst', JSON.stringify(first));
 // let myAFirst = JSON.parse(localStorage.getItem('myFirst'));
 // console.log(myAFirst)
+
+handleDarkMode()

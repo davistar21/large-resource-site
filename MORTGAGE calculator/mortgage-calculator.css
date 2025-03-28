@@ -5,6 +5,10 @@
 body{
   font-family: 'sansa';
   background-color: rgb(220, 220, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 html{
   font-size: 16px;
