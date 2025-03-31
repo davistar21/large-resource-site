@@ -1,0 +1,145 @@
+@font-face {
+  font-family: 'myFont';
+  src: url(../Karla-VariableFont_wght.ttf);
+}
+body{
+  font-family: 'myFont';
+  --base-color-: #189382;
+  --min-color: #07ac5770; 
+  background-color: #e6fcff;
+  margin: 0 10px;
+}
+select, button, input, h1, a{
+  all: unset;
+}
+button{
+  cursor: pointer;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 30px;
+  align-items: center;
+  border: 2px solid var(--base-color-);
+  padding: 20px 40px;
+}
+main{
+  display: flex;
+  justify-content: space-around;
+}
+.course-table article, .course-table form div{
+  display: grid;
+  grid-template-columns: 100px repeat(3, 150px) 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  column-gap: 1%;
+  row-gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+.course-table form input{
+  border-radius: 10px;
+  border: 2px solid var(--min-color);
+  max-width: 70%;
+  padding: 10px 0;
+}
+select{
+  width: 70%;
+  /* min-width: 70%; */
+  padding: 10px 0;
+  border: 2px solid var(--min-color);
+  border-radius: 10px;
+}
+.course-table aside button{
+  padding: 10px 20px;
+  color: white;
+  margin: 0 5px;
+  border-radius: 20px;
+  background-color: var(--base-color-);
+}
+.delete-button{
+  color: rgb(121, 10, 10);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+.score-data div.slide-down{
+  animation: slideDown 0.5s ease-in-out ;
+}
+@keyframes slideDown {
+  from{
+    opacity: 0.5;
+    transform: translateY(-50%);
+ } to {
+  opacity: 1;
+  transform: translateY(0);
+ }
+}
+
+
+
+
+
+
+
+.progress-circle {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 100px auto;
+}
+
+.progress-circle svg {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  transform: rotate(-90deg); /* Rotating to start the circle from the top */
+}
+
+.progress-circle circle {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-width: 20;
+  stroke-linecap: round;
+}
+
+.progress-circle circle:first-child {
+  stroke: #e0e0e0; /* Background circle color */
+}
+body.dark circle:first-child{
+  stroke: rgb(147, 147, 147);
+}
+body.dark circle:last-child{
+  stroke: rgb(61, 255, 61)
+}
+.progress-circle circle:last-child {
+  stroke: var(--base-color-); /* Progress bar color */
+  stroke-dasharray: 440; /* 2 * PI * r where r = 70 */
+  stroke-dashoffset: 440; /* Start with offset that hides the circle */
+  transition: stroke-dashoffset 0.5s ease;
+}
+.gpa-value{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--base-color-);
+}
+
+
+
+
+@media(max-width: 800px) {
+  main{
+    flex-direction: column;
+    align-items: center;
+  }
+  .course-table article, .course-table form div{
+    /* margin: 0; */
+    grid-template-columns: 40px repeat(3, 100px) 20px;
+  }
+}
