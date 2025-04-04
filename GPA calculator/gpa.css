@@ -63,6 +63,7 @@ select{
   border: 2px solid var(--base-color-);
   border-radius: 10px;
   text-align: center;
+  -webkit-text-align: center;
 }
 .course-table aside button{
   padding: 10px 20px;
