@@ -12,9 +12,9 @@ body{
 body.dark{
   background: 
     linear-gradient(135deg, #00000050, transparent, #ffffff50),
-    url(../../images/pattern-lines.svg),
-    url(../../images/pattern-lines.svg),
-    url(../../images/black-wallpaper.jpg)
+    url(../images/pattern-lines.svg),
+    url(../images/pattern-lines.svg),
+    url(../images/black-wallpaper.jpg)
 ;
 color: white;
 }
