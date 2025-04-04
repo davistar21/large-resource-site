@@ -11,7 +11,7 @@
   <header>
     <a href="../index.html">HOME</a>
     <h1>GPA Calculator</h1>
-    <span>More</span>
+    <button class="dark-mode-button">DM</button>
   </header>
   <main>
     <div>
@@ -30,12 +30,12 @@
         <span>Grade</span>
         <span>Units</span>
       </article>
-      <form class="score-data">
-        <div class="each" id="each-1">
+      <section class="score-data">
+        <form class="each" id="each-1">
           <span>1</span>
-          <input type="text" placeholder="GEG311">
+          <input type="text" placeholder="GEG311" name="course-code">
           <!-- <input type="text"> -->
-           <select name="" id="">
+           <select name="grade" id="select-1">
             <option value="A">A</option>
             <option value="B">B</option>
             <option value="C">C</option>
@@ -43,14 +43,14 @@
             <option value="E">E</option>
             <option value="F">F</option>
            </select>
-          <input type="number">
+          <input type="number" name="course-units">
           <i class="fa-solid fa-trash delete-button" data-object-id="1" id="delete-button-1"></i>
           <!-- <button class="delete-button" data-object-id="1" id="delete-button-1">&times;</button> -->
-        </div>
-      </form>
+        </form>
+      </section>
       <aside>
-        <button class="add-button">+&nbsp; Add Course</button>
-        <button clas="clear-all">Clear All</button>
+        <button class="add-button" >+&nbsp; Add Course</button>
+        <button class="clear-all">Clear All</button>
       </aside>
     </div>
     </div>
