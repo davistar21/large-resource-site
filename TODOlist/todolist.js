@@ -58,7 +58,10 @@ function renderTasks() {
     }
     
     const editBtn = document.createElement('button');
-    editBtn.textContent = '🖉'; 
+    // editBtn.textContent = '🖉';
+     editBtn.innerHTML =  `
+        <img src="../images/pen-solid.svg" alt="edit" class="edit-pen">
+     `
     editBtn.style.marginLeft = '10px';
     editBtn.addEventListener('click', () => {
       editTask(task, taskText);

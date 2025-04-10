@@ -130,7 +130,9 @@ span.completed{
 label.completed{
   opacity: 0.8;
 }
-
+.edit-pen{
+  width: 1rem;
+}
 @media (max-width: 1000px) {
  main{
   width: 60%;
@@ -142,9 +144,6 @@ label.completed{
   }
 }
 @media (max-width: 450px) {
-  main{
-    /* width: 90%; */
-  }
   input{
     width: 100px;
   }
