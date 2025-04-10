@@ -145,6 +145,9 @@ label.completed{
   main{
     /* width: 90%; */
   }
+  input{
+    width: 100px;
+  }
   form input{
     width: 60%;
   }
