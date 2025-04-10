@@ -7,7 +7,12 @@ body{
   --base-color-: #189382;
   --min-color: #07ac5770; 
   background-color: #e6fcff;
-  margin: 0 10px;
+  background:
+    linear-gradient(135deg, #0564785f, #ffffff67, #ffffff67, #0770855f),
+    url(../Hangman/images/pattern-squiggly-line-bottom-desktop.svg) no-repeat bottom left,
+    url(../hangman/images/light-background.jfif) 100% 0/ 100% 100% no-repeat 
+;
+    margin: 0 10px;
 }
 body.dark{
   background: 
@@ -16,7 +21,7 @@ body.dark{
     url(../images/pattern-lines.svg),
     url(../images/black-wallpaper.jpg)
 ;
-color: white;
+  color: white;
 }
 select, button, input, h1, a{
   all: unset;
@@ -63,7 +68,6 @@ select{
   border: 2px solid var(--base-color-);
   border-radius: 10px;
   text-align: center;
-  -webkit-text-align: center;
 }
 .course-table aside button{
   padding: 10px 20px;
@@ -73,11 +77,14 @@ select{
   background-color: var(--base-color-);
 }
 .delete-button{
-  color: rgb(121, 10, 10);
+  color: #790a0a;
   border-radius: 50%;
   width: 25px;
   height: 25px;
   cursor: pointer;
+}
+body.dark .delete-button{
+  color: #ffffff9d;
 }
 .score-data form.slide-down{
   animation: slideDown 0.5s ease-in-out ;

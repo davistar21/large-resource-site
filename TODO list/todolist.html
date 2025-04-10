@@ -12,10 +12,17 @@
   </header>
   <main>
     <form action="">
-
+      <input type="text" name="task" placeholder="add task here.." id="new-task">
+      <button class="add-button" id="add-task" type="submit">+</button>
+      <button class="clear-button">&times;</button>
     </form>
-    
+    <ul class="tasks" id="tasks"></ul>
+    <div class="filters">
+      <button data-filter="all" class="active">All</button>
+      <button data-filter="active">Active</button>
+      <button data-filter="completed">Completed</button>
+    </div>
   </main>
-  <script src="./todolist.js"></script>
+  <script src="./todolist.js" type="module"></script>
 </body>
 </html>

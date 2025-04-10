@@ -1,10 +1,19 @@
 import handleDarkMode from "../utils/handleDarkMode.js"
 import $ from '../utils/querySelector.js'
-const circle = document.getElementById('progressCircle');
-const dashoffset = 440 - (440 * 10) / 100; // 440 is full circumference
-circle.style.strokeDashoffset = dashoffset;
 
 handleDarkMode();
+
+
+let gpa = 3.5 ;
+let jg = (gpa/5)*4400;
+
+
+const circle = document.getElementById('progressCircle');
+const dashoffset = 440 - (jg * 10) / 100; // 440 is full circumference
+circle.style.strokeDashoffset = dashoffset;
+
+
+
 const addButtonElem = $('.add-button');
 const scoreData = $('.score-data');
 $('.clear-all').addEventListener('click', clearAll)
