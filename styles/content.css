@@ -1,37 +1,5 @@
-@media (min-width: 700px) {
-    .all{
-        /* overflow: scroll; */
-    }    
-
 html{
     scroll-behavior: smooth;
-}
-/* WebKit Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: rgba(136, 136, 136, 0.5); /* Semi-transparent */
-    border-radius: 4px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(85, 85, 85, 0.7); /* Slightly darker on hover */
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: rgba(241, 241, 241, 0.5); /* Semi-transparent */
-    border-radius: 4px;
-  }
-  
-  /* Firefox Scrollbar */
-  html {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(136, 136, 136, 0.5) rgba(241, 241, 241, 0.5);
-  }
-
 }
 .all{
     display: grid;
@@ -55,6 +23,25 @@ html{
     cursor: pointer;
     border: 1px solid black;
 }
+.content:hover .content-desc{
+    opacity: 1;
+}
+.content-desc{
+    transition: 0.15s;
+    opacity: 0.5;
+}
+.content-desc div{
+    text-align: right;
+    font-size: 1.2rem;
+    margin: 0;
+}
+.content-desc dl{
+    font-size: 0.9rem;
+}
+.content-desc dd{
+    margin-left: 20px;
+}
+
 @keyframes fade-in-up {
     from {
         opacity: 0;

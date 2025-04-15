@@ -7,12 +7,26 @@ body{
   --base-color: #2267b6d3;
   margin: 0;
 }
+body.dark{
+  --dark-base-color: rgb(146, 220, 27);
+  /* background-color: red; */
+}
 a, li, button, input{
   all: unset;
 }
+button{
+  cursor: pointer;
+}
+.dark-mode-button{
+  padding: 10px 5px;
+  border: 2px solid var(--base-color);
+  border-radius: 10px;
+  color: var(--base-color);
+}
 header{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 20px;
   margin: 10px 30px;
   align-items: center;
   /* border: 2px solid var(--base-color); */
@@ -51,6 +65,9 @@ form button{
   padding: 5px;
   text-align: center;
 }
+body.dark form button{
+  background-color: var(--dark-base-color);
+}
 .clear-button{
   background-color: rgb(133, 20, 20);
 }
@@ -63,11 +80,13 @@ label{
   border-radius: 5px;
   display: grid;
   grid-template-columns: 50px 1fr 50px 50px;
-  align-items: center;
   background: #f9fafb;
   margin-bottom: 0.5rem;
   padding: 0.75rem;
   border-radius: 8px;
+}
+label :nth-child(n+4){
+  text-align: center;
 }
 .filters {
   position: absolute;

@@ -1,5 +1,7 @@
+import handleDarkMode from "../utils/handleDarkMode.js";
 import $ from "../utils/querySelector.js";
 
+handleDarkMode();
 $('form').addEventListener('submit', (e) => {
   e.preventDefault()
 })

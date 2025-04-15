@@ -46,11 +46,13 @@ main{
   justify-content: space-around;
 }
 .course-table article, .course-table section form {
+  /* margin: 0; */
   display: grid;
-  grid-template-columns: 100px repeat(3, 150px) 20px;
+  grid-template-columns: 50px repeat(3, 100px) 20px;
   text-align: center;
+  /* width: 80%; */
   margin-bottom: 20px;
-  column-gap: 1%;
+  column-gap: 5%;
   row-gap: 20px;
   justify-items: center;
   align-items: center;
@@ -58,11 +60,11 @@ main{
 .course-table form input{
   border-radius: 10px;
   border: 2px solid var(--base-color-);
-  max-width: 70%;
+  max-width: 100%;
   padding: 10px 0;
 }
 select{
-  width: 70%;
+  width: 100%;
   /* min-width: 70%; */
   padding: 10px 0;
   border: 2px solid var(--base-color-);
@@ -160,12 +162,8 @@ body.dark circle:last-child{
     align-items: center;
   }
   .course-table article, .course-table section form{
-    /* margin: 0; */
     grid-template-columns: 40px repeat(3, 100px) 20px;
   }
-  .course-table form input, select{
-    width: 90%;
-    max-width: 90%;
-  }
+  
 }
 

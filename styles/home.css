@@ -7,7 +7,7 @@
     src: url(../PlusJakartaSans-VariableFont_wght.ttf);
 }
 body{
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus-Jakarta', sans-serif;
     background-color: hsl(208, 100%, 92%);
 }
 body.dark{
