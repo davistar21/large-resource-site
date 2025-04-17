@@ -5,6 +5,19 @@ handleDarkMode();
 $('form').addEventListener('submit', (e) => {
   e.preventDefault()
 })
+const feature = $('#task-form');
+const featureOffset = feature.offsetTop;
+let isSticky = false
+window.addEventListener("scroll", () => {
+  if (window.scrollY >= featureOffset && !isSticky) {
+    feature.classList.add("sticky");
+    isSticky = true;
+  } else if (window.scrollY < featureOffset && isSticky){
+    feature.classList.remove("sticky");
+    isSticky = false
+  }
+});
+
 
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 let currentFilter = 'all'; // 'all', 'active', 'completed'

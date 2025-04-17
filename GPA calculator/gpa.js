@@ -16,6 +16,7 @@ circle.style.strokeDashoffset = dashoffset;
 
 const addButtonElem = $('.add-button');
 const scoreData = $('.score-data');
+
 $('.clear-all').addEventListener('click', clearAll)
 addButtonElem.addEventListener('click', () => {
   regenerate();
