@@ -1,5 +1,9 @@
 const $ = (className, src=document) => src.querySelector(className)
 
+let historyArray = JSON.parse(localStorage.getItem('historyArray')) || [];
+function saveHistory() {
+    localStorage.setItem('historyArray', JSON.stringify(historyArray))
+}
 const stringToArray = (string) => {
   let arr = [];
   for (const letter in string) {
@@ -130,6 +134,7 @@ wordInput.addEventListener('input', (e) => {
 })
 playBUttonElem.addEventListener('click', () => {
   showTiles(wordInput.value)
+  wordInput.value = ''
 })
 
 function showTiles(word) {
@@ -151,14 +156,38 @@ function showTiles(word) {
       </em>
     `
     resultDisplay.innerHTML = `${displayTotalScore}<div class="tile-block">${displayedTiles}</div>`
-
+    
 
     document.querySelectorAll('.letter-tile').forEach(tile => {
       tile.addEventListener('click', () => {
 
       })
     })
+  });
+  historyArray.push({
+    word,
+    totalScore
+  });
+  saveHistory();
+  displayHistory();
+}
+
+function displayHistory() {
+  $('.history').innerHTML = '<span class="clear-history">✖</span>';
+  historyArray.forEach(history => {
+    $('.history').innerHTML += `<div class="history-element">${history.word}: ${history.totalScore}</div>`;
+
+  });
+  $('.clear-history').addEventListener('click', () => {
+    historyArray = [];
+    localStorage.removeItem('historyArray');
+    displayHistory()
   })
 }
+displayHistory()
+
+$('.history-button').addEventListener('click', () => {
+  $('.history').classList.toggle('active')
+})
 
 

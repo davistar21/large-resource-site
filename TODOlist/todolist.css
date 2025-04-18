@@ -2,6 +2,9 @@
   font-family: 'myFont';
   src: url(../Karla-VariableFont_wght.ttf);
 }
+*{
+  /* box-sizing: border-box; */
+}
 body{
   font-family: 'myFont', sans-serif;
   --base-color: #2267b6d3;
@@ -58,7 +61,7 @@ form{
   transition: all 0.3s ease;
   background-color: white;
 }
-body.dark form:not(.sticky) {
+body.dark form{
   background: none;
 }
 form input{
@@ -198,12 +201,10 @@ body.dark label.completed{
 
 @keyframes slide {
   from {
-    transform: translateY(100px) scale(1);
-    opacity: 1;
+    transform: translateY(50%);
   }
   to {
-    transform: translateY(0) scale(1);
-    opacity: 1;
+    transform: translateY(0) ;
   }
 }
 

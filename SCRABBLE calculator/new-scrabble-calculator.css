@@ -6,6 +6,7 @@ body{
   font-family: 'my-font', sans-serif;
   background: #dbf4ef;
   font-size: 20px;
+  position: relative;
 }
 header{
   display: flex;
@@ -34,6 +35,8 @@ button{
   cursor: pointer;
 }
 .play-button:active{
+  opacity: 0.8;
+  background-color: gray;
 }
 main{
   display: flex;
@@ -99,6 +102,38 @@ section em span{
   gap: 15px;
   justify-content: center;
   font-size: 25px;
+}
+.history{
+  display: none;
+}
+.history.active{
+  position: relative;
+  margin: 100px auto;
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #004d51;
+  color: white;
+  gap: 30px;
+  padding: 80px 40px;
+  border-radius: 30px;
+}
+.history div{
+  border: 2px solid hsl(61, 70%, 52%);
+  padding: 10px;
+  border-radius: 10px;
+
+}
+.clear-history{
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  border: 2px solid hsl(61, 70%, 52%);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
 }
 @media (max-width: 1300px){
   form, section{
