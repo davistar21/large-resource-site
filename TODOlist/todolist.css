@@ -68,6 +68,9 @@ form input{
   width: 50%;
 }
 body.dark form input{
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid;
   border-color: var(--dark-base-color);
   color: white;
 }
@@ -108,6 +111,10 @@ label{
   padding: 0.75rem;
   border-radius: 8px;
 }
+body.dark label{
+  border-color: #6BA3BE;
+  background-color: #0f8c8e84;  
+}
 label :nth-child(n+4){
   text-align: center;
 }
@@ -125,12 +132,17 @@ label :nth-child(n+4){
   border-radius: 6px;
   cursor: pointer;
 }
-
+body.dark .filters button{
+  background: #0f8c8e84;
+}
 .filters button.active {
   background: var(--base-color);
   color: white;
 }
-
+body.dark .filters button.active{
+  background: var(--dark-base-color);
+  color: black;
+}
 label input[type="checkbox"]{
   display: none;
 }
@@ -161,6 +173,10 @@ label:has(input[type="checkbox"]:checked) .checkmark{
   background-color: var(--base-color);
   border-color: var(--base-color);
 }
+body.dark label:has(input[type="checkbox"]:checked) .checkmark{
+  background-color: #032F30;
+  border-color: #032F30;
+}
 label:has(input[type="checkbox"]:checked) .checkmark::after{
   display: block;
 }
@@ -171,6 +187,10 @@ span.completed{
 }
 label.completed{
   opacity: 0.8;
+  border-color: var(--dark-base-color);
+}
+body.dark label.completed{
+  background-color: hsla(61, 70%, 52%, 0.2);
 }
 .edit-pen{
   width: 1rem;
