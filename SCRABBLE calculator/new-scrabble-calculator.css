@@ -1,12 +1,14 @@
 @font-face {
   font-family: 'my-font';
-  src: url(../WorkSans-VariableFont_wght.ttf);
+  src: url(../PlusJakartaSans-VariableFont_wght.ttf);
 }
 body{
   font-family: 'my-font', sans-serif;
   background: #dbf4ef;
-  font-size: 20px;
   position: relative;
+}
+body.dark{
+
 }
 header{
   display: flex;
@@ -25,7 +27,7 @@ input{
 }
 input::placeholder{
   /* color: #ffffffbb; */
-  color: black;
+  color: rgba(0, 0, 0, 0.6);
 }
 button{
   all: unset;
@@ -104,7 +106,9 @@ section em span{
   font-size: 25px;
 }
 .history{
-  display: none;
+  /* display: none; */
+  opacity: 0;
+  transition: 1s ease;
 }
 .history.active{
   position: relative;
@@ -117,6 +121,17 @@ section em span{
   gap: 30px;
   padding: 80px 40px;
   border-radius: 30px;
+  animation: slide 0.3s forwards ease-in-out;
+}
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translateY(-100%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 .history div{
   border: 2px solid hsl(61, 70%, 52%);

@@ -1,5 +1,7 @@
-const $ = (className, src=document) => src.querySelector(className)
+import handleDarkMode from "../utils/handleDarkMode.js";
 
+const $ = (className, src=document) => src.querySelector(className)
+handleDarkMode()
 let historyArray = JSON.parse(localStorage.getItem('historyArray')) || [];
 function saveHistory() {
     localStorage.setItem('historyArray', JSON.stringify(historyArray))
@@ -133,10 +135,18 @@ wordInput.addEventListener('input', (e) => {
   // showTiles(e.target.value)
 })
 playBUttonElem.addEventListener('click', () => {
-  showTiles(wordInput.value)
+  if (!checkForNumber(wordInput.value)) {
+    showTiles(wordInput.value)
+  }
   wordInput.value = ''
 })
-
+function checkForNumber(word) {
+  for (const letter in word) {
+    if (!isNaN(parseInt(word[letter]))) {
+      return true
+    } 
+  }
+}
 function showTiles(word) {
   let displayedTiles = '';
   let displayTotalScore = '';
