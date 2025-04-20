@@ -137,7 +137,7 @@ html{
         animation: fade-in-up 1s forwards;
     }
     .content-desc{
-        opacity: 0;
+        display: none;
     }
 }
 .content-title{
