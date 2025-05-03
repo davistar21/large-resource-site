@@ -25,24 +25,29 @@ const randomLetterGenerator = () => {
   return letters.charAt(Math.floor(Math.random() * letters.length));
 }
 
-// setInterval(() => {
-//   const x = randomNumberGenerator();
-//   const y = randomNumberGenerator()
-//   lines.style = `transform: translate(${x}%, ${y}%)`
-// }, 1000)
+setInterval(() => {
+  const x = randomNumberGenerator();
+  const y = randomNumberGenerator()
+  lines2.style = `
+    border-radius: ${randomNumberGenerator(50)}%
+  `
+}, 1000)
 
-// lines2.querySelectorAll('div').forEach((div, index) => {
-//   div.id = index;
-//   setInterval(() => {
-//     const x = randomNumberGenerator(250);
-//     const y = randomNumberGenerator(250);
-//     const r = randomNumberGenerator(255);
-//     const g = randomNumberGenerator(255);
-//     const b = randomNumberGenerator(255);
-//     // div.style = `transform: translate(${x}px, ${y}px); background-color: rgb(${r}%, ${g}%, ${b}%)`
-//     div.style = `transform: translate(${x}px, ${y}px); background-color: rgb(${r}%, ${g}%, ${b}%)`
-//   }, 1000)
-// })
+lines2.querySelectorAll('div').forEach((div, index) => {
+  div.id = index;
+  setInterval(() => {
+    const x = randomNumberGenerator(250);
+    const y = randomNumberGenerator(250);
+    const r = randomNumberGenerator(255);
+    const g = randomNumberGenerator(255);
+    const b = randomNumberGenerator(255);
+    // div.style = `transform: translate(${x}px, ${y}px); background-color: rgb(${r}%, ${g}%, ${b}%)`
+    div.style = `
+      transform: translate(${x}px, ${y}px); 
+      background-color: rgb(${r}%, ${g}%, ${b}%);
+    `
+  }, 1000)
+})
 
 // for (let i = 0; i < 256; i++) {
 //   let div = document.createElement('div');
@@ -55,41 +60,39 @@ const randomLetterGenerator = () => {
 //   }
 // }
 
-// setInterval(() => {
-//   const x = randomNumberGenerator(250);
-//   const y = randomNumberGenerator(250);
-//   const r = randomNumberGenerator(255);
-//   const g = randomNumberGenerator(255);
-//   const b = randomNumberGenerator(255);
-//   const m = randomNumberGenerator(100);
-//   const n = randomNumberGenerator(100);
-//   if (x === 0) x = 1
-//   if (y === 0) y = 1
-//   conic.style =  `
-//     background-color: rgb(${r}, ${g}, ${b}); 
-//     height: 20px; 
-//     width: 20px;
-//     top: ${m}%;
-//     left: ${n}%
-//   `;
-//   lines2.style = `
-//     height: ${x}px; 
-//     width: ${x}px;
-//     top: ${n}%;
-//     left: ${m}%
-//   `
-// }, 1000)
-// conic.querySelectorAll('div').forEach((div, index) => {
-//   div.id = index;
-//   setInterval(() => {
-//     const x = randomNumberGenerator(250);
-//     const y = randomNumberGenerator(250);
-//     const r = randomNumberGenerator(255);
-//     const g = randomNumberGenerator(255);
-//     const b = randomNumberGenerator(255);
-//     div.style = `transform: translate(${x}px, ${y}px); background-color: rgb(${r}%, ${g}%, ${b}%)`
-//   }, 1000);
-// })
+setInterval(() => {
+  const x = randomNumberGenerator(250);
+  const y = randomNumberGenerator(250);
+  const r = randomNumberGenerator(255);
+  const g = randomNumberGenerator(255);
+  const b = randomNumberGenerator(255);
+  const m = randomNumberGenerator(25);
+  const n = randomNumberGenerator(25);
+  if (x === 0) x = 1
+  if (y === 0) y = 1
+  conic.style =  `
+    background-color: rgb(${r}, ${g}, ${b}); 
+    bottom: ${m}%;
+    right: ${n}%
+  `;
+  // lines2.style = `
+  //   height: ${x}px; 
+  //   width: ${x}px;
+  //   top: ${n}%;
+  //   left: ${m}%
+  // `
+}, 1000)
+conic.querySelectorAll('div').forEach((div, index) => {
+  div.id = index;
+  setInterval(() => {
+    const x = randomNumberGenerator(window.innerWidth/8);
+    const y = randomNumberGenerator(window.innerHeight/8);
+    const r = randomNumberGenerator(255);
+    const g = randomNumberGenerator(255);
+    const b = randomNumberGenerator(255);
+    div.style = `transform: translate(${x}px, ${y}px); background-color: rgb(${r}%, ${g}%, ${b}%)`
+  }, 1000);
+})
 
 let callBallIntervalId;
 let timer = 0;
