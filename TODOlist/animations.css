@@ -1,5 +1,8 @@
 body{
-  background-color: rgb(2, 23, 32);
+  background-color: rgb(2 , 23, 32);
+  position: relative; 
+  margin: 0;
+  margin-bottom: 200px;
 }
 .ball-row, .ball-row-2 {
   display: flex;
@@ -48,36 +51,118 @@ body{
 }
 
 section{
-  /* position: relative; */
+  position: relative;
   /* background-color: red; */
   /* padding: 20px; */
-  /* width: 50%; */
+  height: 100px;
   margin: 100px auto;
 }
+.loading-animation-1{
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+.loading-animation-1 .ball{
+  position: absolute;
+}
+.loading-animation-1 .ball:nth-child(1) {
+  animation: bounce 1s ease-in-out infinite;
+}
+.loading-animation-1 .ball:nth-child(2) {
+  animation: bounce-2 1s ease-in-out infinite;
+}
 
-
-.ball-row-3{
+.lines{
   display: flex;
   gap: 10px;
-  position: relative;
-  --w: 500px;
-  /* background-color: red; */
-  width: fit-content;
+  transition: all ease-in-out 1s;
 }
-.ball-row-3 .ball{
-  animation: moveToEnd 1s infinite linear;
+.lines div{
+  width: 1px;
+  height: 1px;
+  background-color: royalblue;
+  /* border-radius: 50%; */
+  animation: lines 1s ease-in-out infinite;
 }
-@keyframes moveToEnd {
+@keyframes lines {
   0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  25%{
-    transform: translate(50%, 50%) scale(0.5, 2);
+    transform: scaleY(1);
+    background-color: royalblue;
+    width: 1px;
   }
   50% {
-    transform: translate(0, 100%) scale(0.5, 4)
+    transform: scaleY(100);
+    background-color: rgb(81, 199, 199);
+    width: 1px;
   }
-  75% {
-    transform: translate(-50%, 50%) scale(0.25, 2)
-  }
+}
+
+.lines-2{
+  width: 250px;
+  height: 250px;
+  border: 2px solid rgb(255, 0, 0);
+  display: flex;
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  gap: 10px;
+  margin: auto;
+  transition: all 1s ease-in-out;
+}
+.lines-2::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  top: 50%;
+  transform: rotate(45deg);
+  background-color: red;
+}
+.lines-2 div, .conic div{
+  position: absolute;
+  transition: all ease-in-out 1s;
+  width: 20px;
+  height: 20px;
+  background-color: royalblue;
+  border-radius: 50%;
+}
+.hues{
+  width: 255px;
+  height: 255px;
+  /* border: 2px solid royalblue; */
+  border-radius: 10px;
+  display: flex;
+}
+.hues .pixel{
+  width: 1px;
+  height: 1px;
+}
+.loading-animation-1 .ball{
+  perspective: 1000px;
+  transform: rotate3d(200deg);
+}
+
+.conic {
+  background-color: rgb(255, 255, 255);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: all 1s ease-in-out;
+  position: absolute;
+  inset: 0;
+}
+
+.call{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+.call-ball{
+  position: absolute;
+  transition: all 1s ease-in-out;
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  border-radius: 50%;
 }
