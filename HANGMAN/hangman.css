@@ -117,11 +117,48 @@ body.dark .more-hints-button:hover{
   transition: 0.15s ease;
   cursor: pointer;
 }
-.empty-boxes span span{
+.checked{
+  animation: anm-correct 0.5s forwards;
+}
+.wrong-checked{
+  animation: anm-incorrect 0.5s forwards;
+}
+@keyframes anm-correct {
+  0%, 100%{
+    transform: scale(1);
+    background-color: transparent;
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: rgb(14, 123, 41);
+  }
+}
+@keyframes anm-incorrect {
+  0%{
+    transform: translateX(0);
+    border: 2px solid red;
+    background-color: rgba(255, 0, 0, 0.319);
+  }
+  25%, 75%{
+    transform: translateX(10px);
+    background-color: rgba(255, 0, 0, 0.319);
+    border-color: red;
+  }
+  50% {
+    background-color: rgba(255, 0, 0, 0.319);
+    transform: translateX(-10px);
+    border-color: red;
+  }
+  100%{
+    transform: translateX(0);
+    border: 2px solid transparent;
+  }
+}
+/* .empty-boxes span span{
   position: absolute;
   margin: 0;
   inset: 0;
-}
+} */
 .letters span:hover{
   box-shadow: 0px 1px 3px 0px rgba(0, 183, 211, 0.45), 0px 1px 2px 0px rgba(10, 133, 178, 0.95);
   color: #0caaa2;
@@ -203,4 +240,16 @@ body.dark .dark-mode-icon{
 }
 .hide{
   display: none;
+}
+.replay{
+  border-radius: 50px;
+  border: 2px solid black;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  cursor: pointer;
+}
+body.dark .replay{
+  border-color: white;
+  color: white;
 }
