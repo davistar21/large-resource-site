@@ -1,10 +1,14 @@
 @font-face {
-  font-family: 'Space Grotesk';
-  src: url(./SpaceGrotesk-2.0.0/ttf/SpaceGrotesk[wght].ttf);
+  font-family: 'myFont';
+  src: url(../WorkSans-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: 'myFont2';
+  src: url(../SpaceGrotesk[wght].ttf);
 }
 body{
   /* font-family: Arial, Helvetica, sans-serif; */
-  font-family: 'Space Grotesk', Arial;
+  font-family: 'myFont2', Arial;
   background: #cde7ff;
   padding: 10px;
   background:
@@ -116,6 +120,7 @@ body.dark .more-hints-button:hover{
   text-align: center;
   transition: 0.15s ease;
   cursor: pointer;
+  font-family: 'myFont';
 }
 .checked{
   animation: anm-correct 0.5s forwards;
@@ -252,4 +257,4 @@ body.dark .dark-mode-icon{
 body.dark .replay{
   border-color: white;
   color: white;
-}
+} 

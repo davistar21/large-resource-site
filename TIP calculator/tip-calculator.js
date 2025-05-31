@@ -10,7 +10,7 @@ let tipAmount = document.querySelector('#tip-amount');
 let totalAmount = document.querySelector('#total-amount')
 
 const tipButtons = tipForm.querySelectorAll('input[name="tip"]');
-let tip;
+let tip = 0;
 tipButtons.forEach(button => {
   if (button.value !== 'custom') {
     if (button.checked) {
@@ -20,6 +20,10 @@ tipButtons.forEach(button => {
       if (e.target.checked) {
         tip = e.target.value
       }
+    })
+  } else {
+    button.addEventListener('click', () => 
+      {
     })
   }
 })

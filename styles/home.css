@@ -20,12 +20,14 @@ a{
 header{
     display: flex;
     justify-content: space-around;
+    border-bottom: 2px solid hsl(185, 93%, 28%);
+    padding: 10px 2px;
 }
 header img{
     width: 30px;
     height: auto;
 }
-.dark-mode-button{
+/* .dark-mode-button{
     padding: 10px;
     border: 1px solid black;
     border-radius: 50%;
@@ -38,4 +40,31 @@ header img{
 body.dark .dark-mode-button{
     border-color: white;
     background: linear-gradient(to bottom right, #000068, rgb(9, 139, 137));
+} */
+.switch{
+  width: 42px;
+  height: 25px;
+  background-color: hsl(3, 71%, 56%);
+  border-radius: 25px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.switch span{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  right: 2px;
+  transition: all 0.15s;
+
+}
+.switch.active {
+  background-color: hsl(0, 0%, 78%);
+}
+.switch.active span{
+  right: 20px;
 }

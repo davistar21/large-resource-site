@@ -23,6 +23,7 @@ let isDarkMode = JSON.parse(localStorage.getItem('isDarkMode'));
 if(isDarkMode){
     document.body.classList.add('dark')
 } else {
+    document.querySelector('.switch').classList.add('active')
     document.body.classList.remove('dark')
 }
 
@@ -37,5 +38,11 @@ if(isDarkMode){
 // localStorage.setItem('myFirst', JSON.stringify(first));
 // let myAFirst = JSON.parse(localStorage.getItem('myFirst'));
 // console.log(myAFirst)
+
+document.querySelectorAll('.switch').forEach(e => {
+    e.addEventListener('click', () => {
+        e.classList.toggle('active')
+      })
+    })
 
 handleDarkMode()

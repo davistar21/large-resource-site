@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'myFont';
+  src: url(../RedHatText-VariableFont_wght.ttf);
+}
+body{
+  font-family: 'myFont', sans-serif;
+  background-color: #fdf9f2;
+}
+button, h2, h1, h4, input, select,a {
+  all: unset;
+}
+button, input, select,a{
+  cursor: pointer;
+}
+.main-header{
+  display: flex;
+  border: 1px solid rgba(0, 0, 0);
+  border-radius: 3px;
+  padding: 10px;
+  background: white;
+  justify-content: space-around;
+  align-items: center;
+}
+.main-header :nth-child(1){
+  color: brown;
+}
+.main-header :nth-child(2){
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: brown;
+}
+.main-header :nth-child(3) {
+  color: #3f5400;
+  font-weight: 200;
+}
+main{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+table{
+  width: 80%;
+  border-collapse: collapse;
+}
+table :not(:last-child) tr {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  position: relative;
+}
+table input, table select {
+  padding: 5px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  text-align: center;
+  box-sizing: border-box;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+main section:nth-child(3){
+  display: flex;
+  gap: 20px;
+}
+main section:nth-child(3) button{
+  padding: 8px 20px;
+  color: white;
+  border-radius: 20px;
+  transition: 0.15s;
+  font-weight: 600;
+}
+
+main section:nth-child(3) button:nth-child(1){
+  background-color: rgb(3, 152, 132);
+}
+main section:nth-child(3) button:nth-child(2){
+  background-color: #af0808;
+}
+main section:nth-child(3) button:hover{
+  opacity: 0.8;
+}
+main section:not(:first-child) {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+main section:nth-child(2) {
+  flex-direction: column;
+  align-items: center;
+}
+main section:nth-child(2) header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.add-semester-button{
+  position: absolute;
+  right: 0;
+  padding: 6px 15px;
+  border-radius: 30px;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+}
+.delete-button{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid gray;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: gray;
+  }
