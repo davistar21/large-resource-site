@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'myFont';
+  src: url(../../RedHatText-VariableFont_wght.ttf);
+}
+body{
+  font-family: 'myFont', sans-serif;
+  background-color: rgb(242, 255, 248);
+  margin: 0;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+#num{
+  all: unset;
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 8px;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+}
+button{
+  all: unset;
+  padding: 10px 20px;
+  border: 2px solid;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.display{
+  background-color: white;
+  border: 1px solid #ccc;
+  height: 60vh;
+  width: 80%;
+  height: 60vh;
+  margin: 100px auto;
+  position: relative;
+}
+.display span{
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid black;
+  transition: all 0.15s;
+}
+article{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
