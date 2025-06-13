@@ -25,11 +25,7 @@ export default function renderTable(semester, semesterElem) {
           <input type="number" placeholder="3" class="course-units" value="${course.units || ''}">
         </td>
         <td>
-          <button class="course-delete-button" data-course-id="${course.id}" id="course-delete-button-${course.id}">
-            <!--<i class="fa-solid fa-trash " data-course-id="${course.id}" id="delete-button-${course.id}"></i> -->
-            &times; 
-          </button>
-          
+          <i class="fa-solid fa-trash course-delete-button" data-course-id="${course.id}" id="course-delete-button-${course.id}"></i>
         </td>
       </tr>
     `

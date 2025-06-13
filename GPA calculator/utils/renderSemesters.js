@@ -24,15 +24,13 @@ export function renderSemesters() {
     return `
       <h4 data-semester-number="${semester.id}" id="semester-h4-${semester.id}">
         Semester ${semester.id}
-        <button style="margin-left:10px" data-semester-id="${semester.id}" id="semester-delete-button-${semester.id}" class="semester-delete-button">
-          <!--<i class="fa-solid fa-trash semester-delete-button" data-semester-id="${semester.id}" id="semester-delete-button-${semester.id}"></i>-->
-          &times;
-        </button>
+        <i class="fa-solid fa-trash semester-delete-button" data-semester-id="${semester.id}" id="semester-delete-button-${semester.id}" ></i>
       </h4>
   `}).join('')
   document.querySelectorAll('.semester-delete-button').forEach(button => {
     button.addEventListener('click', function(){
       school.removeSemester(button.dataset.semesterId)
+      // school.semesters.forEach(semester => semester.isActive = false)  
       // renderSemesters()
     })
   })

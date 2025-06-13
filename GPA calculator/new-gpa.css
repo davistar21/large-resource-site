@@ -159,6 +159,21 @@ main section:nth-child(2) header {
 .delete-button{
   color: #890808;
 }
+.semester-delete-button{
+  /* color: #890808; */
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 0.7rem;
+}
+.course-delete-button{
+  color: #890808;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-left: 10%;
+}
+body.dark .course-delete-button{
+  color: inherit;
+}
 .table-header-header{
   display: flex;
   justify-content: space-between;
@@ -209,6 +224,9 @@ body.dark .semesters-content{
   flex-shrink: 0;
   scroll-snap-align: center;
   box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
 }
 .semesters-div::-webkit-scrollbar{
   display: none;
