@@ -129,7 +129,6 @@ function display () {
 }
 
 document.querySelector('.replay').addEventListener('click', () => {
-  console.log('ll')
   g()
 })
 // const letterTiles = letterBoxes.querySelectorAll('span');

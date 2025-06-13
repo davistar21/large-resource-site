@@ -29,7 +29,7 @@ export function renderSemesters() {
           &times;
         </button>
       </h4>
-  `})
+  `}).join('')
   document.querySelectorAll('.semester-delete-button').forEach(button => {
     button.addEventListener('click', function(){
       school.removeSemester(button.dataset.semesterId)
@@ -56,7 +56,7 @@ export function renderSemesters() {
         </table>
       </div>
     ` 
-  });
+  }).join('');
   school.semesters.forEach(semester => {
     renderTable(semester, getSemesterElem(semester.id));
     renderGPA(semester, getSemesterElem(semester.id));

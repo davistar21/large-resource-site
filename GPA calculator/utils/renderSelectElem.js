@@ -6,6 +6,6 @@ export default function renderSelectElem(course) {
       return `<option value="${e}">${e}</option>`
     }
     return `<option value="${e}" selected>${e}</option>`
-  })
+  }).join('')
 }
 
