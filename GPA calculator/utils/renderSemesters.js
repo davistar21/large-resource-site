@@ -44,7 +44,7 @@ export function renderSemesters() {
         <table>
           <thead>
             <tr>
-              <th>Course Name</th>
+              <th>Courses (<span class="courses-length">0</span>)</th>
               <th>Grade</th>
               <th>Units (<span class="units">0</span>)</th>
             </tr>

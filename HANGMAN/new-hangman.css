@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'myFont';
-  src: url(../WorkSans-VariableFont_wght.ttf);
+  src: url(../Ubuntu/Ubuntu-Regular.ttf);
 }
 @font-face {
   font-family: 'myFont2';
@@ -120,7 +120,7 @@ body.dark .more-hints-button:hover{
   text-align: center;
   transition: 0.15s ease;
   cursor: pointer;
-  font-family: 'myFont';
+  font-family: 'myFont', arial;
 }
 .checked{
   animation: anm-correct 0.5s forwards;

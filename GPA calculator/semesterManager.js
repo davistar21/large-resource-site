@@ -1,6 +1,5 @@
 import { Semester } from "./semester.js";
 
-
 export default class SemesterManager{
   constructor() {
     this.#loadFromStorage()
@@ -38,6 +37,9 @@ export default class SemesterManager{
     this.semesters.forEach((semester, index) => semester.id = index+1)
   }
   removeSemester(id) {
+    if (this.semesters.length == 1) {
+      return  
+    }
     this.semesters.splice(id-1, 1);
     this.resetId();
     this.saveToStorage()

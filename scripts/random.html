@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random</title>
+  <link rel="stylesheet" href="./random.css">
+</head>
+<body>
+  <header>
+    <a href="../index.html">Home</a>
+    <button class="toggle-theme">
+      <img src="../images/images/icon-moon.svg" alt="" id="theme-icon">
+    </button>
+  </header>
+  <main>
+    <h1>
+      Probability of Randomness 
+    </h1>
+    <h2>
+      This is an experiment to determine the probability of randomness
+    </h2>
+    <h3>
+      Select either A or B at random
+    </h3>
+    <h3>
+      Press 'START' to begin
+    </h3>
+    <a class="start-button" href="#display">START</a>
+    <em>
+      <h4>Back Story</h4>
+      <span>From the movie 'SpiderMan: Into the SpiderVerse', Miles Morales flunks a 100-question true/false quiz. 
+        He gets 0. His teacher says, "If a person wearing a blindfold were to pick the answers on a true/false quiz, do you know what score 
+        they would get?" And that has been all the motivation I needed.
+      </span>
+    </em>
+    <div id="display">
+      <div class="action-buttons">
+        <button class="auto-play">Auto Play</button>
+        <button class="restart">Restart</button>
+      </div>
+      <div>Count: <span class="question-count"></span></div>
+      <div class="value-buttons">
+        <button data-value='a'>A</button>
+        <button data-value='b'>B</button>
+      </div>
+      <div style="display: flex; flex-direction: column; gap:10px; align-items: center">
+        <span style="font-size: 2rem; font-weight: 700;" class="accuracy">0.00%</span>
+        <span>Accuracy</span>
+      </div>
+    </div>
+  </main>
+
+  <script src="./random.js" type="module"></script>
+</body>
+</html>

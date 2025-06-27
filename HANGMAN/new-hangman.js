@@ -4,13 +4,13 @@ import { shuffleArray } from "./utils/shuffle-array.js";
 
 handleDarkMode();
 
-
 class Word {
   constructor(props) {
     this.word = props.word
     this.hint = props.hint
     this.availableLetters = this.generateLetters();
     this.chosenLetters = []
+    this.#loadFromStorage()
   }
   getFirstLetter() {
     return [...this.word][0];
@@ -32,7 +32,6 @@ class Word {
     return [...this.word].find(e => e == letter);
   }
   pickLetter(letter) {
-    // const l = this.findLetter(letter);
     this.chosenLetters.push(letter);
     this.availableLetters.splice(this.availableLetters.indexOf(letter), 1)
   }
@@ -50,26 +49,46 @@ class Word {
     }
     return arr
   }
+  setId() {
+
+  }
+  check() {
+    if ([...this.word].length !== this.chosenLetters.length) return false;
+    return [...this.word].every((element, index) => element === this.chosenLetters[index])
+  }
+  updateScore() {
+    this.score += 10;
+    this.saveToStorage()
+  }
+  saveToStorage() {
+    localStorage.setItem('score', JSON.stringify(this.score)) 
+  }
+  #loadFromStorage () {
+    this.score = JSON.parse(localStorage.getItem('score')) || 0;
+  }
 }
 
 function randomNumberGenerator(limit=100) {
-  const randomNumber = Math.floor((Math.random())*limit)
-  return randomNumber
+  return Math.floor((Math.random())*limit)
 }
 
 
-class WordManager {
-  // words = [];
+class WordManager{
   constructor (words) {
+    this.#loadFromStorage()
     this.words = words;
   }
   getRandomWord() {
     return (this.words[Math.floor(Math.random() * words.length)])
   }
+  #loadFromStorage() {
+    this.score = JSON.parse(localStorage.getItem('score')) || 0;
+  }
 }
 
-let wordManager = new WordManager([])
 
+let wordManager = new WordManager([])
+console.log(wordManager)
 words.forEach(word => {
   wordManager.words.push(new Word({
     word: word.word,
@@ -78,7 +97,14 @@ words.forEach(word => {
 })
 
 
-const randomWordClass = wordManager.getRandomWord()
+let randomWordClass;
+function display() {
+  randomWordClass = wordManager.getRandomWord()
+  renderAvailableLetters()
+}
+
+display()
+// document.querySelector('.score').innerHTML = wordManager.score;
 
 
 function renderAvailableLetters() {
@@ -94,8 +120,23 @@ function renderAvailableLetters() {
     if (randomWordClass.chosenLetters.length < randomWordClass.word.length) {
       span.addEventListener('click', () => {
         let letter = span.dataset.letter; 
-        console.log(letter)
         randomWordClass.pickLetter(letter);
+        if (randomWordClass.check()){
+          // randomWordClass.updateScore()
+          // console.log(randomWordClass.score, randomWordClass)
+          // document.querySelector('.score').innerHTML = wordManager.score;
+          document.querySelectorAll('.empty-boxes span').forEach(span => {
+            console.log(span)
+            // span.style = 'background-color: red; transform:scale(200)'
+            span.classList.add('checked')
+          })
+          setTimeout(() => {
+            document.querySelectorAll('.empty-boxes span').forEach(span => {
+              // span.classList.remove('correct-checked')
+            })
+            // display()
+          }, 1000);
+        }
         renderAvailableLetters();
         renderChosenLetters()
       })
@@ -103,6 +144,8 @@ function renderAvailableLetters() {
     
   })
 }
+
+
 
 function renderChosenLetters() {
   document.querySelector('.empty-boxes').innerHTML = randomWordClass.fillArray().map(letter => {
@@ -122,5 +165,5 @@ function renderChosenLetters() {
 }
 
 
-renderAvailableLetters()
+
 

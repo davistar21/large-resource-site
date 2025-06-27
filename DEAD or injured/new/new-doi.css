@@ -1,0 +1,141 @@
+@font-face {
+  font-family: 'myFont';
+  src: url(../../Outfit/Outfit-VariableFont_wght.ttf);
+}
+html{
+  font-size: 20px;
+}
+body{
+  background-color: #fbecf6;
+  font-family: 'myFont', sans-serif;
+}
+input, button, a{
+  all: unset;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+header{
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  padding: 10px 20px;
+  position: relative;
+  margin-bottom: 50px;
+}
+.set-difficulty{
+  position: relative;
+  cursor: pointer;
+}
+.set-difficulty div{
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: all 0.15s ease-in-out;
+  display: flex;
+  top: 0;
+  right: 50%;
+  gap: 0;
+  transform: translateX(50%);
+  justify-content: center;
+  align-items: center;
+}
+.set-difficulty.active div{
+  opacity: 1;
+  pointer-events: all;
+  gap: 20px;
+  transform: translate(50%, 100%);
+  /* animation: fadeIn 0.5s forwards; */
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+.set-difficulty div span{
+  background-color: white;
+  border: 2px solid #583f79;
+  padding: 4px 8px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.set-difficulty div span.active{
+  background-color: #7E659E;
+  color: white;
+}
+main{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.a1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  background-color:white;
+  padding: 10px;
+  border-radius: 20px;
+}
+.guess-input{
+  padding: 10px;
+  border: 2px solid #7E659E;
+  text-align: center;
+  border-radius: 30px;
+  width: 100px;
+}
+.go-button{
+  padding: 10px;
+  border: 2px solid #7E659E;
+  background-color:  #7E659E;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+}
+.disabled{
+  background-color: gray;
+  color: #dad9d9;
+  pointer-events: none;
+}
+.a1-2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.a1-2 .chances-dots{
+  display: flex;
+  gap: 4px;
+}
+.a1-2 .chances-dots span{
+  background-color: #583f79;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.a1-2 .chances-dots span.inactive{
+  opacity: 0.4;
+}
+.a2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: white;
+  color: #583f79;
+}
+.a2 div{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+

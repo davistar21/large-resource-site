@@ -1,6 +1,6 @@
 
-function randomNumberGenerator() {
-    const randomNumber = parseInt((Math.random())*10)
+export function randomNumberGenerator(limit=10) {
+    const randomNumber = parseInt((Math.random())*limit)
     return String(randomNumber)
 }
 let secretCode;

@@ -9,6 +9,7 @@ export default function renderTable(semester, semesterElem) {
     semester.addCourse();
     renderTable(semester, semesterElem)
   }
+  semesterElem.querySelector('.courses-length').innerHTML = semester.courses.length
   let theHTML = ''
   semester.courses.forEach(course => 
   theHTML +=   `
@@ -34,6 +35,7 @@ export default function renderTable(semester, semesterElem) {
   
   semesterElem.querySelectorAll('.course-name').forEach(e => {
     e.addEventListener('input', function (f) {
+      f.target.value = f.target.value.toUpperCase();
       let course = semester.getCourse(f.target.closest('tr').dataset.courseId);
       course.name = f.target.value
       renderGPA(semester, semesterElem)
