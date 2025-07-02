@@ -5,10 +5,10 @@ import { renderCGPA } from "./renderSemesters.js";
 
 
 export default function renderTable(semester, semesterElem) {
-  if (semester.courses.length === 0) {
-    semester.addCourse();
-    renderTable(semester, semesterElem)
-  }
+  // if (semester.courses.length === 0) {
+  //   semester.addCourse();
+  //   renderTable(semester, semesterElem)
+  // }
   semesterElem.querySelector('.courses-length').innerHTML = semester.courses.length
   let theHTML = ''
   semester.courses.forEach(course => 
@@ -23,7 +23,7 @@ export default function renderTable(semester, semesterElem) {
           </select>
         </td>
         <td>
-          <input type="number" placeholder="3" class="course-units" value="${course.units || ''}">
+          <input type="number" placeholder="3"  class="course-units" value="${course.units || ''}">
         </td>
         <td>
           <i class="fa-solid fa-trash course-delete-button" data-course-id="${course.id}" id="course-delete-button-${course.id}"></i>

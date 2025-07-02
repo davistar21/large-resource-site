@@ -1,13 +1,27 @@
 import { Course } from "./course.js";
+import SemesterManager from "./semesterManager.js";
 
 
 export class Semester {
+  id;
   courses = [];
   isActive;
-  constructor(isActive) {
-    this.isActive = isActive || false;
-    // this.#localStorageKey = localStorageKey;
-    // this.#loadFromStorage();
+  manager;
+  constructor(manager, semesterDetails) {
+    this.#loadFromStorage();
+    this.manager = manager;
+    this.isActive = semesterDetails.isActive || false;
+    this.courses = []
+    if (semesterDetails.courses && semesterDetails.courses.length > 0) {
+      this.courses = semesterDetails.courses.map(course => new Course({
+        id: course.id,
+        name: course.name,
+        units: course.units,
+        grade: course.grade
+      }));
+    } else {
+      this.addCourse(); 
+    }
   }
 
   addCourse() {
@@ -17,7 +31,8 @@ export class Semester {
       units: 0,
       grade: 'A'
     }));
-  };
+    this.manager.saveToStorage()
+    };
 
   getCourse(id){
     return this.courses.find(e => e.id == id)
@@ -30,6 +45,7 @@ export class Semester {
     this.courses.map((course, index) => course.id = index)
   }
   calculateGPA() {
+    this.manager.saveToStorage()
     return this.getTotalUnits() ? (this.getTotalGradePoints() / this.getTotalUnits()).toFixed(2) : (0).toFixed(2)
   }
 
@@ -37,7 +53,6 @@ export class Semester {
     let total = 0;
     this.courses.forEach(course => {
       total += course.getWeightedPoint();
-      // this.saveToStorage()
     })
     return total
   }
@@ -52,14 +67,21 @@ export class Semester {
 
   clearAll() {
     this.courses = [];
-    // this.saveToStorage()
   }
-
-  // saveToStorage() {
-  //   localStorage.setItem(`${this.#localStorageKey}`, JSON.stringify(this.courses)) 
-  // }
-
-  // #loadFromStorage() {
-  //   this.courses = JSON.parse(localStorage.getItem(`${this.#localStorageKey}`)) || []
-  // };
+  #loadFromStorage() {
+    let data = JSON.parse(localStorage.getItem('semesterManager1')) || [];
+    let actualSemester = data ? data.find(e => e.isActive = true) : null;
+    if (!actualSemester) return
+    actualSemester.courses.forEach(courseData => {
+      this.courses.push(new Course(
+        {
+          id: courseData.id,
+          name: courseData.name,
+          units: parseInt(courseData.units),
+          grade: courseData.grade 
+        }
+      ))
+    })
+    this.resetId()
+  }
 }

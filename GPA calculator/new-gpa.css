@@ -161,9 +161,9 @@ main section:nth-child(2) header {
 }
 .semester-delete-button{
   /* color: #890808; */
-  margin-left: 10px;
   cursor: pointer;
-  font-size: 0.7rem;
+  margin: 0 5px 0 15px;
+  font-size: 0.8rem;
 }
 .course-delete-button{
   color: #890808;
@@ -224,7 +224,6 @@ body.dark .semesters-content{
   flex-shrink: 0;
   scroll-snap-align: center;
   box-sizing: border-box;
-
   display: flex;
   align-items: center;
 }

@@ -7,7 +7,13 @@ export default class SemesterManager{
   semesters = [];
   addSemester() {
     this.semesters.forEach(semester => semester.isActive = false)
-    this.semesters.push(new Semester(true))
+    this.semesters.push(new Semester(
+      this, 
+      {
+        isActive: true,
+        courses: []
+      }
+    ))
     this.resetId()
     this.saveToStorage()
   }
@@ -40,15 +46,40 @@ export default class SemesterManager{
     if (this.semesters.length == 1) {
       return  
     }
+    if (id == this.semesters.length) {
+      this.semesters[this.semesters.length - 2].isActive = true;
+    }
     this.semesters.splice(id-1, 1);
     this.resetId();
     this.saveToStorage()
   }
   saveToStorage() {
-    // localStorage.setItem('semesterManager1', JSON.stringify(this.semesters)) 
+    const safeSemesters = this.semesters.map(semester => ({
+      id: semester.id,
+      isActive: semester.isActive,
+      courses: semester.courses.map(course => ({
+        id: course.id,
+        name: course.name,
+        units: course.units,
+        grade: course.grade
+      }))
+    }));
+
+    localStorage.setItem('semesterManager1', JSON.stringify(safeSemesters));
   }
 
+
   #loadFromStorage() {
-    // this.semesters = JSON.parse(localStorage.getItem('semesterManager1')) || []
-  };
+    let semestersData =  JSON.parse(localStorage.getItem('semesterManager1')) || []
+    if (!semestersData || semestersData.length == 0) {
+      this.addSemester();
+      return;
+    }
+    this.semesters = semestersData.map(data => new Semester(this, {
+      id: data.id,
+      isActive: data.isActive,
+      courses: data.courses
+    }));
+    this.resetId();
+  }
 }
