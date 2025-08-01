@@ -6,11 +6,12 @@ export class Semester {
   courses = [];
   isActive;
   manager;
+  isBlurred;
   constructor(manager, semesterDetails) {
     this.#loadFromStorage();
     this.manager = manager;
     this.isActive = semesterDetails.isActive || false;
-    
+    this.isBlurred = semesterDetails.isBlurred || false;
     this.courses = []
     if (semesterDetails.courses && semesterDetails.courses.length > 0) {
       this.courses = semesterDetails.courses.map(course => new Course({

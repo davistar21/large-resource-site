@@ -162,8 +162,8 @@ main section:nth-child(2) header {
 .semester-delete-button{
   /* color: #890808; */
   cursor: pointer;
-  margin: 0 5px 0 15px;
-  font-size: 0.8rem;
+  /* margin: 0 5px 0 15px; */
+  /* font-size: 0.8rem; */
 }
 .course-delete-button{
   color: #890808;
@@ -239,6 +239,12 @@ body.dark .semesters-div h4{
 .semesters-div h4.active{
   background-color: rgb(246, 212, 212);
   border-color: transparent;
+}
+.semesters-div h4.blurred{
+  background-color: transparent;
+  border-color: #ccc;
+  color: #ccc;
+  text-decoration: line-through;
 }
 body.dark .semesters-div h4.active{
   background-color: #039884a3;
@@ -319,7 +325,6 @@ body.dark .gpa-value{
   display: flex;
   justify-content: space-around;
 }
-
 
 
 @media (max-width: 650px) {

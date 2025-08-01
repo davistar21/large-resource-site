@@ -1,4 +1,3 @@
-import { Semester } from "../semester.js";
 import SemesterManager from "../semesterManager.js";
 import renderGPA from "./renderGPA.js";
 import renderTable from "./renderTable.js";
@@ -21,12 +20,28 @@ let activeSemester;
 
 export function renderSemesters() {
   document.querySelector('.semesters-div').innerHTML = school.semesters.map(semester => {
+    const isActiveClass = semester.isActive ? 'active' : '';
+    const isBlurredClass = semester.isBlurred ? 'blurred' : '';
     return `
-      <h4 data-semester-number="${semester.id}" id="semester-h4-${semester.id}">
+      <h4 data-semester-number="${semester.id}" class="${isActiveClass} ${isBlurredClass}" id="semester-h4-${semester.id}">
         Semester ${semester.id}
-        <i class="fa-solid fa-trash semester-delete-button" data-semester-id="${semester.id}" id="semester-delete-button-${semester.id}" ></i>
+        <div style="display: flex; align-items: center; gap: 15px; font-size: 0.8rem; margin-left: 15px;">
+          <i class="fa-solid fa-trash semester-delete-button" data-semester-id="${semester.id}" id="semester-delete-button-${semester.id}" ></i>
+          ${
+            !semester.isBlurred ?
+            `<i class="fa-solid fa-eye blur-button data-blur="${semester.isBlurred}""></i>` :
+            `<i class="fa-solid fa-eye-slash blur-button data-blur="${semester.isBlurred}"></i>`}
+        </div>
+  
       </h4>
-  `}).join('')
+  `}).join('');
+  document.querySelectorAll('.blur-button').forEach(button => {
+    button.addEventListener('click', function (e) {
+      const semesterId = e.target.closest('h4').dataset.semesterNumber;
+      const semester = school.getSemester(semesterId);
+      semester.isBlurred = !semester.isBlurred;
+    })
+  })
   document.querySelectorAll('.semester-delete-button').forEach(button => {
     button.addEventListener('click', function(){
       school.removeSemester(button.dataset.semesterId)
@@ -55,31 +70,32 @@ export function renderSemesters() {
       </div>
     ` 
   }).join('');
+  const semesterButtons = document.querySelectorAll('.semesters-div h4');
+  const semesterPanes = document.querySelectorAll('.semester-pane')
   school.semesters.forEach(semester => {
     renderTable(semester, getSemesterElem(semester.id));
     renderGPA(semester, getSemesterElem(semester.id));
     renderCGPA()
     if (semester.isActive) {
-      document.querySelector(`#semester-h4-${semester.id}`).classList.add('active')
+      // document.querySelector(`#semester-h4-${semester.id}`).classList.add('active')
       document.querySelector(`#semester-${semester.id}`).classList.add('active')
     }
   })
-  const semesterButtons = document.querySelectorAll('.semesters-div h4');
-  const semesterPanes = document.querySelectorAll('.semester-pane')
   semesterButtons.forEach(button => {
     button.addEventListener('click', () => {
       const semesterId = button.dataset.semesterNumber;
       activeSemester = school.getSemester(semesterId)
       
       school.semesters.forEach(semester => semester.isActive = false)
-      semesterButtons.forEach(button => {
-        button.classList.remove('active')
-      })
-      semesterPanes.forEach(pane => {
-        pane.classList.remove('active')
-      })
+      // semesterButtons.forEach(button => {
+      //   button.classList.remove('active')
+      // })
+      // semesterPanes.forEach(pane => {
+      //   pane.classList.remove('active')
+      // })
       activeSemester.isActive = true;
-      button.classList.add('active')
+      // button.classList.add('active')
+      
       renderSemesters()
     })
   })

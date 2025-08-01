@@ -20,7 +20,8 @@ export default class SemesterManager{
   calculateCGPA() {
     let CGPA = 0;
     let overallGradePoints = 0;
-    this.semesters.forEach(semester => {
+    let filteredSemesters = this.semesters.filter(e => e.isBlurred === false);
+    filteredSemesters.forEach(semester => {
       overallGradePoints += semester.getTotalGradePoints()
     })
     CGPA = overallGradePoints/this.overallUnits()
@@ -31,7 +32,8 @@ export default class SemesterManager{
   }
   overallUnits() {
     let overallUnits = 0;
-    this.semesters.forEach(semester => {
+    let filteredSemesters = this.semesters.filter(e => e.isBlurred === false);
+    filteredSemesters.forEach(semester => {
       overallUnits += semester.getTotalUnits() ? semester.getTotalUnits() : 0;
     });
     return overallUnits
@@ -78,6 +80,7 @@ export default class SemesterManager{
     this.semesters = semestersData.map(data => new Semester(this, {
       id: data.id,
       isActive: data.isActive,
+      isBlurred: data.isBlurred,
       courses: data.courses
     }));
     this.resetId();
