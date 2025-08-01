@@ -54,7 +54,7 @@ export default class SemesterManager{
     this.saveToStorage()
   }
   saveToStorage() {
-    const safeSemesters = this.semesters.map(semester => ({
+    const savedSemesters = this.semesters.map(semester => ({
       id: semester.id,
       isActive: semester.isActive,
       courses: semester.courses.map(course => ({
@@ -65,7 +65,7 @@ export default class SemesterManager{
       }))
     }));
 
-    localStorage.setItem('semesterManager1', JSON.stringify(safeSemesters));
+    localStorage.setItem('semesterManager1', JSON.stringify(savedSemesters));
   }
 
 

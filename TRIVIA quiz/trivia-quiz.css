@@ -1,12 +1,116 @@
-.quiz-container {
-  max-width: 600px;
-  margin: auto;
-  text-align: center;
-  padding: 20px;
+@font-face {
+  font-family: 'myFont';
+  src: url(../DMSans-VariableFont_opsz\,wght.ttf);
 }
-
-button {
-  margin: 10px;
-  padding: 10px 20px;
+* {
+  font-family: 'myFont', sans-serif;
+  font-size: 20px;
+  margin:0;
+}
+h2, button, a{
+  all: unset;
+}
+button,a{
   cursor: pointer;
+}
+header{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 25px 10px;
+  background: linear-gradient(to bottom, gray, white);
+  margin-bottom: 25px;
+}
+header h2{
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.question-div, .results{
+  width: 60%;
+  margin: auto;
+  min-height: 200px;
+  /* overflow: hidden; */
+}
+.question-div section.active, .results.active{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: left;
+  gap: 20px;
+  padding: 40px 20px;
+  border-radius: 20px;
+  background-color: royalblue;
+  color: white;
+}
+.question-div section{
+  display: none;
+}
+.question-div h2{
+  font-size: 3rem;
+  font-weight: 700;
+}
+.question-div .options{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+.question-div .options button{
+  border: 2px solid white;
+  width: 90%;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.15s ease-in-out;
+  position: relative;
+  padding-left: 30px;
+}
+.question-div .options button.active{
+  background-color: #13359aa2;
+}
+.question-div .options button::after{
+  position: absolute;
+  content: '';
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 2px solid white;
+  inset: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  transition: 0.15s ease-in-out;
+}
+.question-div .options button.active::after{
+  background-color: white;
+}
+.direction-buttons{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.previous-button, .next-button{
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+.results{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 768px){
+  *{
+    font-size: 16px;
+  }
+  .question-div{
+    width: 80%;
+  }
+}
+@media (max-width: 568px){
+  .question-div{
+    width: 95%;
+    padding: 10px
+  }
 }

@@ -1,5 +1,4 @@
 import { Course } from "./course.js";
-import SemesterManager from "./semesterManager.js";
 
 
 export class Semester {
@@ -11,6 +10,7 @@ export class Semester {
     this.#loadFromStorage();
     this.manager = manager;
     this.isActive = semesterDetails.isActive || false;
+    
     this.courses = []
     if (semesterDetails.courses && semesterDetails.courses.length > 0) {
       this.courses = semesterDetails.courses.map(course => new Course({

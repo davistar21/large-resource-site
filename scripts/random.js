@@ -184,3 +184,30 @@ document.documentElement.setAttribute('data-theme', 'light');
 
 themeIcon.addEventListener("click", toggleTheme)
 
+let isAutoPlayingLimit = false;
+let n = JSON.parse(localStorage.getItem('n-limit')) || 1;
+let limit = 1/n
+let autoPlayIntervalLimitId
+function renderLimit(){
+  localStorage.setItem('n-limit', JSON.stringify(n))
+  document.querySelector('.limit').innerHTML = limit.toFixed(10)
+  document.querySelector('.n_comp').innerHTML = n
+}
+renderLimit()
+document.querySelector('.auto-play-limit').addEventListener('click', (e) => {
+  e.target.innerHTML = isAutoPlayingLimit === false ? 'Stop' : 'Play'
+  if (isAutoPlayingLimit == false) {
+    autoPlayIntervalLimitId = setInterval(function () {
+      limit = 1/n
+      renderLimit()    
+      n++
+    }, 10)
+
+    // e.target.innerHTML = 'Stop';
+    isAutoPlayingLimit = true
+  } else {
+    isAutoPlayingLimit = false;
+    clearInterval(autoPlayIntervalLimitId)
+    // e.target.innerHTML = 'Play'
+  }
+})
