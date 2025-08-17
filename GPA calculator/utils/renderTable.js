@@ -9,7 +9,7 @@ export default function renderTable(semester, semesterElem) {
   //   semester.addCourse();
   //   renderTable(semester, semesterElem)
   // }
-  
+  renderGPA(semester, semesterElem)
   semesterElem.querySelector('tbody').innerHTML = semester.courses.map(course => {
     const isBlurredClass = course.isBlurred ? 'blurred' : '';
     return   `
