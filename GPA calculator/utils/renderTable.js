@@ -9,11 +9,11 @@ export default function renderTable(semester, semesterElem) {
   //   semester.addCourse();
   //   renderTable(semester, semesterElem)
   // }
-  semesterElem.querySelector('.courses-length').innerHTML = semester.courses.length
-  let theHTML = ''
-  semester.courses.forEach(course => 
-  theHTML +=   `
-      <tr data-course-id=${course.id}>
+  
+  semesterElem.querySelector('tbody').innerHTML = semester.courses.map(course => {
+    const isBlurredClass = course.isBlurred ? 'blurred' : '';
+    return   `
+      <tr data-course-id=${course.id} class="${isBlurredClass}">
         <td>
           <input type="text" placeholder="GEG311" class="course-name" value="${course.name || ''}">
         </td>
@@ -25,13 +25,30 @@ export default function renderTable(semester, semesterElem) {
         <td>
           <input type="number" placeholder="3"  class="course-units" value="${course.units || ''}">
         </td>
-        <td>
+        <td class="course-action-buttons">
           <i class="fa-solid fa-trash course-delete-button" data-course-id="${course.id}" id="course-delete-button-${course.id}"></i>
+          ${
+            !course.isBlurred ?
+            `<i class="fa-solid fa-eye course-blur-button"></i>` :
+            `<i class="fa-solid fa-eye-slash course-blur-button"></i>`
+          }
         </td>
       </tr>
     `
-  )
-  semesterElem.querySelector('tbody').innerHTML = theHTML;
+}).join('')
+  // sem
+  //const isBlurredClass = course.isBlurred ? 'blurred' : '';
+    semesterElem.querySelectorAll('.course-blur-button').forEach(button => {
+      button.addEventListener('click', function (e) {
+        const courseId = e.target.closest('tr').dataset.courseId;
+        const course = semester.getCourse(courseId);
+        course.isBlurred = !course.isBlurred;
+        renderTable(semester, semesterElem);
+        renderGPA(semester, semesterElem);
+        renderCGPA()
+      })
+
+    })
   
   semesterElem.querySelectorAll('.course-name').forEach(e => {
     e.addEventListener('input', function (f) {
@@ -67,3 +84,4 @@ export default function renderTable(semester, semesterElem) {
     })
   })
 } 
+

@@ -73,6 +73,11 @@ table tr {
   grid-template-columns: 3fr 1fr 1fr 1fr;
   column-gap: 10px;
   margin-bottom: 5px;
+  align-items: center;
+}
+table tr.blurred{
+  text-decoration: line-through;
+  opacity: 0.5;
 }
 table thead tr th:nth-child(1) {
   display: flex;
@@ -165,13 +170,13 @@ main section:nth-child(2) header {
   /* margin: 0 5px 0 15px; */
   /* font-size: 0.8rem; */
 }
-.course-delete-button{
+.course-delete-button, .course-blur-button{
   color: #890808;
   cursor: pointer;
   font-size: 0.8rem;
   margin-left: 10%;
 }
-body.dark .course-delete-button{
+body.dark .course-delete-button, body.dark .course-blur-button{
   color: inherit;
 }
 .table-header-header{
@@ -240,11 +245,11 @@ body.dark .semesters-div h4{
   background-color: rgb(246, 212, 212);
   border-color: transparent;
 }
-.semesters-div h4.blurred{
-  background-color: transparent;
+.semesters-div h4.blurred, body.dark .semesters-div h4.blurred{
   border-color: #ccc;
   color: #ccc;
   text-decoration: line-through;
+  background-color: transparent;
 }
 body.dark .semesters-div h4.active{
   background-color: #039884a3;
@@ -264,6 +269,13 @@ body.dark .semesters-div h4.active{
   gap: 20px;
   justify-content: center;
   align-items: center;
+}
+.course-action-buttons{
+  display: flex;
+  justify-content: space-evenly;
+}
+.course-blur-button{
+  cursor: pointer;
 }
 
 
@@ -285,8 +297,8 @@ body.dark .semesters-div h4.active{
   width: 100%;
   height: 100%;
   fill: none;
-  stroke-width: 25;
   /* stroke-linecap: round; */
+  stroke-width: 25
 }
 
 .progress-circle circle:first-child {
@@ -343,14 +355,13 @@ body.dark .gpa-value{
   table tr{
     grid-template-columns: 1fr 1fr 1fr 20px;
   }
-  .main-header {
+  .course-action-buttons{
+      /* gap: 12px; */
+    /* justify-content: space-between; */
   }
-  table :not(:last-child) tr {
+  .course-blur-button{
+      display: none;
+      opacity: 0; 
   }
-  main section:nth-child(3) {
-  }
-  main section:nth-child(3) button {
-  }
-  .add-semester-button{
-  }
+  
 }

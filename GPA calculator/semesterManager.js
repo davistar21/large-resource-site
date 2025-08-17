@@ -36,7 +36,7 @@ export default class SemesterManager{
     filteredSemesters.forEach(semester => {
       overallUnits += semester.getTotalUnits() ? semester.getTotalUnits() : 0;
     });
-    return overallUnits
+    return overallUnits;
   }
   getSemester(id){
     return this.semesters.find((e, index) => index + 1 == id) || []
@@ -59,11 +59,13 @@ export default class SemesterManager{
     const savedSemesters = this.semesters.map(semester => ({
       id: semester.id,
       isActive: semester.isActive,
+      isBlurred: semester.isBlurred,
       courses: semester.courses.map(course => ({
         id: course.id,
         name: course.name,
         units: course.units,
-        grade: course.grade
+        grade: course.grade,
+        isBlurred: course.isBlurred,
       }))
     }));
 

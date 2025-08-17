@@ -52,7 +52,7 @@ export class Semester {
 
   getTotalGradePoints(){
     let total = 0;
-    this.courses.forEach(course => {
+    this.courses.filter(e => !e.isBlurred).forEach(course => {
       total += course.getWeightedPoint();
     })
     return total
@@ -60,7 +60,7 @@ export class Semester {
 
   getTotalUnits() {
     let total = 0
-    this.courses.forEach(course => {
+    this.courses.filter(e => !e.isBlurred).forEach(course => {
       total += course.units;
     })
     return total
@@ -72,14 +72,15 @@ export class Semester {
   #loadFromStorage() {
     let data = JSON.parse(localStorage.getItem('semesterManager1')) || [];
     let actualSemester = data ? data.find(e => e.isActive = true) : null;
-    if (!actualSemester) return
+    if (!actualSemester) return;
     actualSemester.courses.forEach(courseData => {
       this.courses.push(new Course(
         {
           id: courseData.id,
           name: courseData.name,
           units: parseInt(courseData.units),
-          grade: courseData.grade 
+          grade: courseData.grade,
+          isBlurred: courseData.isBlurred
         }
       ))
     })

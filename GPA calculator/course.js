@@ -4,6 +4,7 @@ export class Course {
     this.name = courseDetails.name;
     this.units = parseInt(courseDetails.units);
     this.grade = courseDetails.grade;
+    this.isBlurred = courseDetails.isBlurred || false;
   }
 
   getGradePoint() {

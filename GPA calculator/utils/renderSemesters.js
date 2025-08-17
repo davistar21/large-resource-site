@@ -29,8 +29,8 @@ export function renderSemesters() {
           <i class="fa-solid fa-trash semester-delete-button" data-semester-id="${semester.id}" id="semester-delete-button-${semester.id}" ></i>
           ${
             !semester.isBlurred ?
-            `<i class="fa-solid fa-eye blur-button data-blur="${semester.isBlurred}""></i>` :
-            `<i class="fa-solid fa-eye-slash blur-button data-blur="${semester.isBlurred}"></i>`}
+            `<i class="fa-solid fa-eye blur-button"></i>` :
+            `<i class="fa-solid fa-eye-slash blur-button"></i>`}
         </div>
   
       </h4>
